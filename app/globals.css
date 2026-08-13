@@ -4,8 +4,11 @@
   :root {
     --bg-main: #060b17;
     --bg-card: rgba(15, 23, 42, 0.75);
-    --accent-orange: #f97316;
-    --accent-amber: #d97706;
+    --brand-red: #CA3333;
+    --brand-blue: #2BA2DD;
+    --brand-silver: #B6B4B6;
+    --accent-red: #CA3333;
+    --accent-blue: #2BA2DD;
     --border-glass: rgba(255, 255, 255, 0.12);
   }
 
@@ -36,43 +39,60 @@
 
 .glass-panel-hover:hover {
   background: rgba(30, 41, 59, 0.8);
-  border-color: rgba(249, 115, 22, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(249, 115, 22, 0.2);
+  border-color: rgba(202, 51, 51, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(202, 51, 51, 0.25);
   transform: translateY(-3px);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 
-.text-gradient-orange {
-  background: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #d97706 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-gradient-brand,
+.text-brand-red {
+  color: #CA3333;
+}
+
+.text-brand-blue {
+  color: #2BA2DD;
 }
 
 .bg-radial-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.15) 0%, rgba(6, 11, 23, 0) 70%);
+  background-color: #060b17;
 }
 
 .bg-grid-pattern {
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 /* Keyframes */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
 }
 
 .animate-float {
@@ -87,13 +107,16 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #060b17;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #f97316;
+  background: #CA3333;
 }

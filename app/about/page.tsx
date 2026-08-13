@@ -16,26 +16,23 @@ import {
   Globe, 
   Users, 
   History,
-  Calculator,
   Zap,
   TrendingUp,
   Briefcase,
   Shield,
   Clock,
-  HeartHandshake
+  HeartHandshake,
+  MessageSquare
 } from "lucide-react";
-import QuoteModal from "@/components/QuoteModal";
-
 export default function AboutPage() {
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   const whyChooseUs = [
-    { title: "Experienced Professionals", desc: "Over 10 years of industry expertise in metal fabrication and finishing.", icon: Award },
-    { title: "Custom Designs", desc: "Tailored finishing solutions engineered to suit every unique architectural space.", icon: Sparkles },
-    { title: "Modern Equipment", desc: "State-of-the-art CNC laser cutting, TIG welding, and glass fitting tools.", icon: Zap },
-    { title: "Customer-Centric", desc: "We work closely with clients to guarantee total satisfaction.", icon: HeartHandshake },
-    { title: "On-Time Delivery", desc: "Projects are completed within agreed milestone timelines.", icon: Clock },
-    { title: "Affordable Quality", desc: "Competitive pricing without compromising structural or aesthetic quality.", icon: ShieldCheck }
+    { title: "Experienced Professionals", desc: "Over 11 years of industry expertise in structural metal fabrication, ACP cladding, and glass finishing.", icon: Award },
+    { title: "Custom Designs", desc: "Tailored finishing solutions engineered to suit every unique commercial or residential architectural space.", icon: Sparkles },
+    { title: "Modern Equipment", desc: "State-of-the-art CNC laser cutting, TIG welding, and precision glass fitting tools.", icon: Zap },
+    { title: "Customer-Centric", desc: "We work closely with architects and developers to guarantee total project satisfaction.", icon: HeartHandshake },
+    { title: "On-Time Delivery", desc: "Projects are completed strictly within agreed milestone timelines.", icon: Clock },
+    { title: "Affordable Quality", desc: "Competitive pricing without compromising structural integrity or aesthetic brilliance.", icon: ShieldCheck }
   ];
 
   const growthStrategies = [
@@ -67,9 +64,9 @@ export default function AboutPage() {
   ];
 
   const hssePillars = [
-    { title: "Use of Personal Protective Equipment (PPE)", desc: "All staff and on-site workers are required to wear appropriate PPE (helmets, gloves, safety boots, goggles, reflective clothing) on every project site." },
-    { title: "Regular Safety Drills & Equipment Maintenance", desc: "Periodic safety drills prepare our teams for emergencies. All safety equipment (harnesses, fire extinguishers, ladders) is routinely inspected." },
-    { title: "Waste Management & Recycling Practices", desc: "Structured waste disposal and recycling procedures for metal, glass, and construction by-products minimize environmental impact." },
+    { title: "Personal Protective Equipment (PPE)", desc: "All staff and on-site workers wear mandatory PPE (helmets, gloves, safety boots, goggles, reflective vests) on every project site." },
+    { title: "Safety Drills & Maintenance", desc: "Periodic safety drills prepare our teams for emergencies. All safety equipment (harnesses, fire extinguishers, ladders) is routinely inspected." },
+    { title: "Waste Management & Recycling", desc: "Structured waste disposal and recycling procedures for metal, glass, and construction by-products minimize environmental impact." },
     { title: "Secure Work Zones", desc: "Workspaces are clearly marked and secured to prevent unauthorized access, protecting clients, visitors, and the public." },
     { title: "Health Checks & Hazard Training", desc: "Workers undergo routine health checks, hazard recognition training, first aid certification, and fire prevention education." }
   ];
@@ -103,46 +100,237 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="space-y-20 pb-20">
+    <div className="space-y-24 pb-20">
       
-      {/* PAGE HERO */}
-      <section className="relative pt-12 pb-16 bg-radial-gradient">
+      {/* 1. HERO BANNER CARD */}
+      <section className="relative pt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20">
-              Official Profile Brochure
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight font-mono">
-              About Apex Itse Nig Ltd.
-            </h1>
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-              Founded in 2013 in Abuja, Apex Itse Nig Ltd. is a dynamic Nigerian company specializing in interior and exterior finishing, structural metalwork, glass systems, and general contracting.
-            </p>
+          <div className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl min-h-[460px] flex items-center">
+            
+            {/* Background Image Container */}
+            <div className="absolute inset-0 w-full h-full">
+              <Image
+                src="/images/interior.png"
+                alt="Apex Itse Corporate Profile"
+                fill
+                priority
+                className="object-cover object-center opacity-30"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent" />
+            </div>
+
+            {/* Banner Content */}
+            <div className="relative z-10 max-w-2xl p-8 sm:p-14 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-[#CA3333]/40 text-[#2BA2DD] text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+                <Sparkles className="w-4 h-4 text-[#CA3333]" />
+                <span>Official Profile & Corporate History</span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] font-mono">
+                About <span className="text-[#CA3333]">Apex Itse</span> Nig Ltd.
+              </h1>
+
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
+                Established in 2013 in Abuja, Apex Itse Nig Ltd. is a premier Nigerian contractor specializing in interior and exterior finishing, structural metalwork, glass curtain walls, and general contracting.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full bg-[#CA3333] hover:bg-[#b22b2b] text-white font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-[#CA3333]/30 transition-all flex items-center gap-2"
+                >
+                  <span>Request Consultation</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
+                <Link
+                  href="/projects"
+                  className="px-7 py-4 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white font-bold text-sm uppercase tracking-wider border border-slate-700 backdrop-blur-md transition-all"
+                >
+                  Explore Projects Gallery
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
 
-      {/* HISTORY & EVOLUTION TIMELINE */}
+      {/* 2. CORPORATE OVERVIEW & 2x2 STATS GRID */}
+      <section className="relative py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Column: Corporate Profile */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="space-y-3">
+                <span className="text-xs font-mono font-bold text-[#CA3333] uppercase tracking-widest px-3 py-1 rounded bg-[#CA3333]/10 border border-[#CA3333]/20">
+                  Established 2013
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
+                  Refining Architectural Finishing Across Nigeria
+                </h2>
+              </div>
+
+              <p className="text-base text-slate-300 leading-relaxed font-sans">
+                <strong>Apex Itse Nig Ltd.</strong> is a household name in delivering high-quality, durable, and modern construction finishing solutions. Our work integrates structural function with aesthetic excellence, contributing to landmark residential, commercial, and industrial spaces across Nigeria.
+              </p>
+
+              <p className="text-sm text-slate-400 leading-relaxed font-sans">
+                Operating from our corporate office in Suit C11, Jabi Plaza, Abuja, our leadership team is guided by professionalism, technical rigor, and a commitment to customer satisfaction.
+              </p>
+
+              <div className="pt-2 flex items-center gap-4 text-xs font-mono text-slate-300">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#2BA2DD]" />
+                  <span>Licensed General Contractor</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#CA3333]" />
+                  <span>Jabi Plaza, Abuja Desk</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: 2x2 Big Stats Grid */}
+            <div className="lg:col-span-6">
+              <div className="grid grid-cols-2 gap-6">
+                
+                <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl space-y-2">
+                  <div className="text-4xl sm:text-5xl font-extrabold text-white font-mono">11+</div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
+                    Years in market
+                  </div>
+                  <p className="text-[11px] text-slate-500">Pioneering quality since 2013</p>
+                </div>
+
+                <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl space-y-2">
+                  <div className="text-4xl sm:text-5xl font-extrabold text-[#2BA2DD] font-mono">250+</div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
+                    Landmark projects
+                  </div>
+                  <p className="text-[11px] text-slate-500">Abuja, Lagos, Port Harcourt</p>
+                </div>
+
+                <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl space-y-2">
+                  <div className="text-4xl sm:text-5xl font-extrabold text-[#CA3333] font-mono">100%</div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
+                    Safety & Wind Certified
+                  </div>
+                  <p className="text-[11px] text-slate-500">Strict HSSE job site standards</p>
+                </div>
+
+                <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl space-y-2">
+                  <div className="text-4xl sm:text-5xl font-extrabold text-emerald-400 font-mono">98%</div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
+                    Client satisfaction
+                  </div>
+                  <p className="text-[11px] text-slate-500">Repeat architects & developers</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          {/* Logo / Standards Strip */}
+          <div className="mt-12 pt-8 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-6 text-slate-400 text-xs font-mono">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#CA3333]" />
+              <span>Alucobond PVDF Certified</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Building2 className="w-4 h-4 text-[#2BA2DD]" />
+              <span>Grade 316 Stainless Steel</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Award className="w-4 h-4 text-[#CA3333]" />
+              <span>Tempered Safety Glass Standard</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Hammer className="w-4 h-4 text-[#2BA2DD]" />
+              <span>Precision CNC Laser Cutting</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* 3. MISSION & VISION STATEMENTS */}
+      <section className="relative py-12 bg-slate-950/60 border-y border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-xs font-mono font-bold text-[#CA3333] uppercase tracking-widest px-3 py-1 rounded bg-[#CA3333]/10 border border-[#CA3333]/20">
+              Purpose & Aspirations
+            </span>
+            <h2 className="text-3xl font-extrabold text-white tracking-tight font-mono">
+              Mission & Vision Statements
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* Mission Statement */}
+            <div className="p-8 sm:p-10 rounded-[2rem] bg-slate-900 border border-[#CA3333]/30 relative overflow-hidden shadow-xl group hover:border-[#CA3333]/60 transition-all">
+              <div className="space-y-4 relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#CA3333]/20 text-[#CA3333] flex items-center justify-center border border-[#CA3333]/30">
+                  <Target className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold font-mono text-[#CA3333] uppercase tracking-wide">
+                  Mission Statement
+                </h3>
+                <p className="text-slate-100 text-base leading-relaxed font-medium">
+                  "To provide reliable, innovative, and top-tier finishing and fabrication services that enhance the beauty, safety, and functionality of every space."
+                </p>
+              </div>
+            </div>
+
+            {/* Vision Statement */}
+            <div className="p-8 sm:p-10 rounded-[2rem] bg-slate-900 border border-[#2BA2DD]/30 relative overflow-hidden shadow-xl group hover:border-[#2BA2DD]/60 transition-all">
+              <div className="space-y-4 relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#2BA2DD]/20 text-[#2BA2DD] flex items-center justify-center border border-[#2BA2DD]/30">
+                  <Eye className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold font-mono text-[#2BA2DD] uppercase tracking-wide">
+                  Vision Statement
+                </h3>
+                <p className="text-slate-100 text-base leading-relaxed font-medium">
+                  "To become Nigeria's leading provider of comprehensive and creative finishing solutions, setting the benchmark for quality, professionalism, and customer satisfaction."
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* 4. HISTORY TIMELINE */}
       <section className="relative py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-5 space-y-6">
-              <div className="p-3 bg-orange-500/10 rounded-2xl border border-orange-500/20 w-fit text-orange-400">
+              <div className="p-3 bg-[#CA3333]/10 rounded-2xl border border-[#CA3333]/20 w-fit text-[#2BA2DD]">
                 <History className="w-8 h-8" />
               </div>
-              <h2 className="text-3xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl font-extrabold text-white tracking-tight font-mono">
                 From Abuja Metal Fabricators to Finishing Leaders
               </h2>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Founded in 2013, Apex Itse Nig Ltd. began as a small metal fabrication outfit in Abuja. With vision, consistency, and dedication to quality, we expanded into a full-service interior and exterior finishing company. Today, we are known for our professionalism and technical expertise, delivering excellence in every project.
+                Founded in 2013, Apex Itse Nig Ltd. began as a small metal fabrication outfit in Abuja. With vision, consistency, and dedication to quality, we expanded into a full-service interior and exterior finishing company. Today, we are known for our professionalism and technical expertise across West Africa.
               </p>
-              <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center gap-4">
-                <div className="text-3xl font-mono font-extrabold text-orange-400">10+</div>
+              <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-center gap-4">
+                <div className="text-3xl font-mono font-extrabold text-[#2BA2DD]">11+</div>
                 <div className="text-xs text-slate-400">
-                  Years of unbroken craftsmanship, structural integrity, and architectural beauty across Nigeria.
+                  Years of unbroken craftsmanship, structural integrity, and architectural beauty.
                 </div>
               </div>
             </div>
@@ -150,9 +338,9 @@ export default function AboutPage() {
             <div className="lg:col-span-7 space-y-4 border-l-2 border-slate-800 pl-6 sm:pl-8 ml-2">
               {historyTimeline.map((item, idx) => (
                 <div key={idx} className="relative group">
-                  <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-orange-500 group-hover:scale-125 transition-transform" />
-                  <div className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 group-hover:border-orange-500/40 transition-all">
-                    <span className="text-xs font-mono font-bold text-orange-400 bg-orange-500/10 px-2.5 py-1 rounded">
+                  <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-[#CA3333] group-hover:scale-125 transition-transform" />
+                  <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 group-hover:border-[#CA3333]/40 transition-all shadow-md">
+                    <span className="text-xs font-mono font-bold text-[#2BA2DD] bg-[#2BA2DD]/10 px-2.5 py-1 rounded">
                       {item.year}
                     </span>
                     <h3 className="text-base font-bold text-white mt-2">{item.title}</h3>
@@ -168,70 +356,19 @@ export default function AboutPage() {
       </section>
 
 
-      {/* MISSION & VISION STATEMENTS */}
-      <section className="relative py-12 bg-slate-950/80 border-y border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          
-          <div className="text-center space-y-3 max-w-2xl mx-auto">
-            <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20">
-              Purpose & Aspirations
-            </span>
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">
-              Mission & Vision Statements
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            {/* Mission Statement */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#0b1329] border border-orange-500/30 relative overflow-hidden shadow-xl group hover:border-orange-500/60 transition-all">
-              <div className="space-y-4 relative z-10">
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center border border-orange-500/30">
-                  <Target className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold font-mono text-orange-400 uppercase tracking-wide">
-                  Mission Statement
-                </h3>
-                <p className="text-slate-100 text-base leading-relaxed font-medium">
-                  "To provide reliable, innovative, and top-tier finishing and fabrication services that enhance the beauty, safety, and functionality of every space."
-                </p>
-              </div>
-            </div>
-
-            {/* Vision Statement */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#0b1329] border border-amber-500/30 relative overflow-hidden shadow-xl group hover:border-amber-500/60 transition-all">
-              <div className="space-y-4 relative z-10">
-                <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
-                  <Eye className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold font-mono text-amber-400 uppercase tracking-wide">
-                  Vision Statement
-                </h3>
-                <p className="text-slate-100 text-base leading-relaxed font-medium">
-                  "To become Nigeria's leading provider of comprehensive and creative finishing solutions, setting the benchmark for quality, professionalism, and customer satisfaction."
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* WHY CHOOSE US (Brochure Image 2) */}
-      <section className="relative py-12">
+      {/* 5. WHY CHOOSE US GRID */}
+      <section className="relative py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center space-y-3 max-w-2xl mx-auto">
-            <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20">
+            <span className="text-xs font-mono font-bold text-[#CA3333] uppercase tracking-widest px-3 py-1 rounded bg-[#CA3333]/10 border border-[#CA3333]/20">
               The Apexitse Advantage
             </span>
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl font-extrabold text-white tracking-tight font-mono">
               Why Choose Us
             </h2>
             <p className="text-xs text-slate-400">
-              Six core reasons clients across Nigeria choose Apex Itse Nig Ltd for their project finishing.
+              Six core reasons architects, developers, and clients across Nigeria choose Apex Itse Nig Ltd.
             </p>
           </div>
 
@@ -241,9 +378,9 @@ export default function AboutPage() {
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 hover:border-orange-500/40 transition-all shadow-lg"
+                  className="p-6 rounded-[2rem] bg-slate-900 border border-slate-800 space-y-3 hover:border-[#CA3333]/40 transition-all shadow-xl"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center border border-orange-500/20">
+                  <div className="w-10 h-10 rounded-xl bg-[#CA3333]/10 text-[#2BA2DD] flex items-center justify-center border border-[#CA3333]/20">
                     <ItemIcon className="w-5 h-5" />
                   </div>
                   <h3 className="text-base font-bold text-white">{item.title}</h3>
@@ -257,115 +394,19 @@ export default function AboutPage() {
       </section>
 
 
-      {/* OUR LEGACY & LEADERSHIP (Brochure Image 2) */}
-      <section className="relative py-12 bg-slate-950/80 border-y border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-4">
-              <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-wide bg-orange-500/10 px-2.5 py-1 rounded">
-                Our Legacy
-              </span>
-              <h3 className="text-2xl font-bold text-white">Refining Construction Finishing</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Apex Itse Nig Ltd. has left a lasting impression on the construction finishing landscape in Nigeria. Our projects are not only functional but become reference points for quality. Our repeat clients and strong word-of-mouth referrals speak to our trusted reputation.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-4">
-              <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wide bg-amber-500/10 px-2.5 py-1 rounded">
-                Leadership Team
-              </span>
-              <h3 className="text-2xl font-bold text-white">Engineers & Artisans</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Apex Itse Nig Ltd. is led by a team of experienced engineers, artisans, and project managers with decades of collective experience. The leadership team is guided by professionalism, ethical business practices, and a relentless drive to improve our service delivery.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-      {/* CRAFTSMANSHIP & QUALITY (Brochure Image 3) */}
-      <section className="relative py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-900 to-[#0c162e] border border-orange-500/20 space-y-6 shadow-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-mono font-bold border border-orange-500/20">
-              <Hammer className="w-4 h-4" />
-              <span>Unwavering Technical Rigor</span>
-            </div>
-            
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">
-              Craftsmanship and Quality
-            </h2>
-
-            <div className="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <p>
-                At Apex Itse Nig Ltd, we believe that true excellence lies in the details. Our craftsmanship is not only a display of technical expertise but also a reflection of our passion for precision, design, and durability. Every project we execute is guided by a strong commitment to delivering results that are structurally sound, visually appealing, and built to last.
-              </p>
-              <p>
-                We approach each task with a combination of advanced technical knowledge, modern tools, and a creative eye for design. Whether it is the meticulous welding of structural elements, the seamless installation of glass panels, or the artistic fabrication of decorative features, our team ensures every component fits perfectly and performs reliably.
-              </p>
-              <p className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-orange-300 font-medium">
-                Quality is not an afterthought; it is embedded into every stage of our process — from initial material selection and fabrication, to surface treatment, delivery, and on-site installation. We adhere to strict quality control standards, ensuring our products meet or exceed industry benchmarks for strength, finish, and performance.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* STRATEGIES FOR GROWTH AND SUCCESS (Brochure Images 2 & 4) */}
+      {/* 6. STRATEGIES FOR GROWTH & HSSE CULTURE */}
       <section className="relative py-12 bg-slate-950/60 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center space-y-3 max-w-2xl mx-auto">
-            <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20">
-              Strategic Outlook
+            <span className="text-xs font-mono font-bold text-[#CA3333] uppercase tracking-widest px-3 py-1 rounded bg-[#CA3333]/10 border border-[#CA3333]/20">
+              Health, Safety & Growth
             </span>
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">
-              Strategies for Growth & Success
+            <h2 className="text-3xl font-extrabold text-white tracking-tight font-mono">
+              HSSE Culture & Strategic Growth
             </h2>
             <p className="text-xs text-slate-400">
-              Our approach to long-term growth and sustainable success is rooted in innovation, collaboration, and customer-centric development.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {growthStrategies.map((strat, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 hover:border-orange-500/30 transition-all shadow-xl"
-              >
-                <span className="text-2xl font-extrabold text-orange-400 font-mono">
-                  {strat.step}
-                </span>
-                <h3 className="text-base font-bold text-white">{strat.title}</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">{strat.desc}</p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* HEALTH, SAFETY, SECURITY, AND ENVIRONMENT (HSSE) (Brochure Image 3) */}
-      <section className="relative py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          
-          <div className="text-center space-y-3 max-w-2xl mx-auto">
-            <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20">
-              Safety Culture
-            </span>
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">
-              Health, Safety, Security, and Environment (HSSE)
-            </h2>
-            <p className="text-xs text-slate-400">
-              At Apex Itse Nig Ltd, we prioritize the health, safety, and security of our employees, clients, and the communities where we operate.
+              Our commitment to zero-harm job sites and continuous technical development.
             </p>
           </div>
 
@@ -373,9 +414,9 @@ export default function AboutPage() {
             {hssePillars.map((hsse, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 hover:border-amber-500/40 transition-all shadow-xl"
+                className="p-6 rounded-[2rem] bg-slate-900 border border-slate-800 space-y-3 hover:border-[#2BA2DD]/40 transition-all shadow-xl"
               >
-                <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 font-bold font-mono text-xs flex items-center justify-center border border-amber-500/20">
+                <div className="w-8 h-8 rounded-lg bg-[#2BA2DD]/10 text-[#2BA2DD] font-bold font-mono text-xs flex items-center justify-center border border-[#2BA2DD]/20">
                   0{idx + 1}
                 </div>
                 <h3 className="text-base font-bold text-white">{hsse.title}</h3>
@@ -388,41 +429,50 @@ export default function AboutPage() {
       </section>
 
 
-      {/* CONSULTATION BANNER */}
+      {/* 7. CALL TO ACTION BANNER */}
       <section className="relative py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold text-white">Partner with Apex Itse Nig Ltd.</h3>
-              <p className="text-xs text-slate-400 max-w-lg">
-                Visit our office at Suit C11, Jabi Plaza, Obafemi Awolowo Way, Jabi, Abuja or request an on-site consultation.
-              </p>
-            </div>
+          <div className="p-8 sm:p-12 rounded-[2.5rem] bg-[#CA3333] text-white relative overflow-hidden shadow-2xl shadow-[#CA3333]/30">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+              <div className="lg:col-span-8 space-y-4">
+                <span className="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 rounded bg-black/20 text-white border border-white/20">
+                  Partner with Apex Itse Nig Ltd.
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                  Schedule a Consultation at Our Abuja Office
+                </h2>
+                <p className="text-xs sm:text-sm text-red-100 max-w-xl">
+                  Visit our headquarters at Suit C11, Jabi Plaza, Obafemi Awolowo Way, Jabi, Abuja or connect directly on WhatsApp to submit your drawings.
+                </p>
+              </div>
 
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setQuoteModalOpen(true)}
-                className="px-5 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold uppercase tracking-wider flex items-center gap-2 border border-slate-700"
-              >
-                <Calculator className="w-4 h-4 text-orange-400" />
-                <span>Estimate Project</span>
-              </button>
+              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end">
+                <a
+                  href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full bg-white text-[#CA3333] hover:bg-slate-100 font-extrabold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  <span>Request Instant Quote</span>
+                </a>
 
-              <Link
-                href="/contact"
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-orange-500/20 flex items-center gap-2"
-              >
-                <span>Contact Us</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                <a
+                  href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20inquire%20about%20a%20project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full bg-slate-950 text-white hover:bg-slate-900 font-bold text-xs uppercase tracking-wider border border-slate-800 flex items-center justify-center gap-2"
+                >
+                  <MessageSquare className="w-4 h-4 text-[#25D366]" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Instant Quote Modal */}
-      <QuoteModal isOpen={quoteModalOpen} onClose={() => setQuoteModalOpen(false)} />
-
+      {/* End of About Page */}
     </div>
   );
 }

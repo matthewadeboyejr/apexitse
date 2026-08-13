@@ -14,7 +14,6 @@ import {
   ShieldCheck, 
   Award, 
   Sparkles,
-  Calculator,
   FileText,
   Shield,
   Zap,
@@ -23,7 +22,11 @@ import {
   Maximize2,
   Droplets,
   Search,
-  HardHat
+  HardHat,
+  Ruler,
+  Wrench,
+  X,
+  MessageSquare
 } from "lucide-react";
 import QuoteModal from "@/components/QuoteModal";
 
@@ -43,7 +46,6 @@ export default function ServicesPage() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   const allServices: ServiceDetail[] = [
     {
@@ -69,7 +71,7 @@ export default function ServicesPage() {
       subtitle: "High-grade tempered glass balustrades combining strength with floating elegance.",
       description: "We install high-grade tempered glass balustrades that serve both decorative and safety purposes. Perfect for balconies, staircases, and terraces in residential or commercial spaces. Minimal metal framing maximizes transparency and creates a floating glass effect.",
       icon: Eye,
-      image: "/images/glass_balustrade.png",
+      image: "/images/glass_balustrade.jpeg",
       features: ["Minimal Framing Transparency", "Floating Glass Effect", "Tempered Safety Laminate", "High Load Resistance"],
       specifications: [
         "Glass Thickness: 12mm, 15mm, 19mm Toughened & Laminated Safety Glass",
@@ -85,7 +87,7 @@ export default function ServicesPage() {
       subtitle: "Precision-cut tempered glass cubicles with sliding, swing, or frameless doors.",
       description: "Our shower cubicles are made from tempered glass, precision-cut to fit any bathroom layout. We offer sliding, swing, and frameless door options with accessories in chrome, matte black, or brushed steel. Our installations prevent water spillage and elevate any modern bathroom.",
       icon: Droplets,
-      image: "/images/glass_balustrade.png",
+      image: "/images/product1.jpeg",
       features: ["Water Spillage Prevention", "Sliding, Swing & Frameless Doors", "Chrome, Matte Black & Brushed Accessories", "Easy Maintenance Coating"],
       specifications: [
         "Glass Type: 8mm - 10mm Clear / Frosted Toughened Safety Glass",
@@ -101,7 +103,7 @@ export default function ServicesPage() {
       subtitle: "Custom iron and steel burglar proof systems for windows, doors & open spaces.",
       description: "We design customized burglar-proof systems for windows, doors, and open spaces using iron or steel. Made to withstand forced entry while maintaining airflow and visibility. Options include decorative patterns, powder-coated finishes, and concealed fittings.",
       icon: Shield,
-      image: "/images/metalwork.png",
+      image: "/images/prouduct2.jpeg",
       features: ["Forced Entry Resistant", "Maintains Natural Airflow", "Concealed Fittings", "Decorative Powder Coating"],
       specifications: [
         "Materials: Solid Iron Bars, Steel Hollow Sections, Forged Wrought Iron",
@@ -133,24 +135,40 @@ export default function ServicesPage() {
       subtitle: "Outdoor & indoor advertising structures, lightboxes, 3D letters & LED integration.",
       description: "We fabricate and install outdoor and indoor advertising structures such as billboards, lightboxes, directional signs, and 3D letter signage. Each structure is designed for high visibility, weather resistance, and easy maintenance with full LED branding support.",
       icon: Sparkles,
-      image: "/images/hero_facade.png",
-      features: ["3D Acrylic & Metal Lettering", "Weatherproof Outdoor Billboards", "Energy-Efficient LED Backlighting", "Turnkey Branding & Printing"],
+      image: "/images/prouduct11.jpeg",
+      features: ["High Visibility Design", "Weather & Wind Load Certified", "3D Channel Letters & Lightboxes", "LED Illumination"],
       specifications: [
-        "Structure: Heavy-Duty Structural Steel Framing & Truss Systems",
-        "Letters: Stainless Steel, Brass, Acrylic 3D Illuminated Channel Letters",
+        "Structure: Heavy Galvanized Steel Truss Work & ACP Fascia",
         "Lighting: IP67 Waterproof Module LEDs",
-        "Maintenance: Front & Rear Access Panel Systems"
+        "Lettering: Laser-Cut Acrylic, Stainless Steel, Brass",
+        "Mounting: Pylon Pole Mounted, Roof Mounted, Wall Mounted"
       ]
     },
     {
-      id: "laser-cut-designs",
+      id: "carports-canopies",
+      title: "Carports, Pergolas & Canopies",
+      category: "amenities",
+      subtitle: "Weatherproof shade solutions using tensile fabric, poly-carbonate & structural steel.",
+      description: "We fabricate carports, entrance pergolas, and architectural canopies that protect vehicles and outdoor spaces from rain and harsh sunlight. Made using heavy-duty steel framing paired with tensile fabrics, polycarbonate sheets, or Alucobond ACP panels.",
+      icon: Sun,
+      image: "/images/prouduct12.jpeg",
+      features: ["Harsh Sunlight & UV Protection", "Tensile Fabric & Polycarbonate", "Heavy Duty Steel Framing", "Modern Architectural Profiles"],
+      specifications: [
+        "Framing: Galvanized Tubular Steel / Powder Coated Aluminum",
+        "Roofing: 100% Waterproof Polycarbonate / Anti-UV Tensile Fabric / ACP",
+        "Anchoring: Reinforced Concrete Footings & Anchor Bolts",
+        "Capacity: Single, Double, Multi-Bay Parking Options"
+      ]
+    },
+    {
+      id: "laser-decorative",
       title: "Laser Cut Decorative Designs",
       category: "metalwork",
-      subtitle: "Intricate laser-cut metal panels for screens, gates, partitions & building facades.",
-      description: "Using state-of-the-art laser technology, we produce intricate metal panels for screens, partitions, gates, facades, and fences. Customized with geometric, floral, Arabic, or abstract designs to add a unique visual identity to properties.",
-      icon: Zap,
-      image: "/images/metalwork.png",
-      features: ["State-of-the-Art CNC Fiber Laser", "Custom Geometric & Abstract Patterns", "Building Facade & Gate Accenting", "Durable Weatherproof Powder Finish"],
+      subtitle: "CNC laser-cut metal panels for gates, balcony screens & interior partitions.",
+      description: "Using precision CNC laser cutters, we transform mild steel, stainless steel, and aluminum into intricate decorative screens, building facades, balcony panels, and entrance gates. Custom geometric, islamic, or modern architectural patterns.",
+      icon: Flame,
+      image: "/images/prouduct14.jpeg",
+      features: ["Precision CNC Laser Accuracy", "Custom Architectural Patterns", "Gates, Balcony & Wall Panels", "Multi-Layer Powder Coat"],
       specifications: [
         "Thickness: 1.5mm to 12mm Mild Steel, Stainless Steel, Aluminum",
         "Sheet Size: Up to 2000mm x 6000mm Continuous Cut",
@@ -327,7 +345,7 @@ export default function ServicesPage() {
       <section className="relative pt-12 pb-16 bg-radial-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20">
+            <span className="text-xs font-mono font-bold text-[#2BA2DD] uppercase tracking-widest px-3 py-1 rounded bg-[#2BA2DD]/10 border border-[#2BA2DD]/20">
               Official Company Portfolio Brochure
             </span>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight font-mono">
@@ -353,7 +371,7 @@ export default function ServicesPage() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer ${
                   activeCategory === cat.id
-                    ? "bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-md shadow-orange-500/20"
+                    ? "bg-[#CA3333] text-white shadow-md shadow-[#CA3333]/20"
                     : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
                 }`}
               >
@@ -370,7 +388,7 @@ export default function ServicesPage() {
               placeholder="Search handrails, glass, carports..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
+              className="w-full pl-9 pr-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#CA3333]"
             />
           </div>
 
@@ -384,16 +402,18 @@ export default function ServicesPage() {
           
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono text-slate-400">
-              Showing <strong className="text-orange-400">{filteredServices.length}</strong> of {allServices.length} Finishing Pillars
+              Showing <strong className="text-[#2BA2DD]">{filteredServices.length}</strong> of {allServices.length} Finishing Pillars
             </span>
 
-            <button
-              onClick={() => setQuoteModalOpen(true)}
-              className="px-4 py-2 rounded-full bg-orange-500/10 text-orange-400 hover:bg-orange-500 hover:text-white text-xs font-bold uppercase tracking-wider border border-orange-500/20 transition-all flex items-center gap-2"
+            <a
+              href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20service%20quote"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-[#CA3333]/10 text-[#2BA2DD] hover:bg-[#CA3333] hover:text-white text-xs font-bold uppercase tracking-wider border border-[#CA3333]/20 transition-all flex items-center gap-2"
             >
-              <Calculator className="w-4 h-4" />
-              <span>Launch Price Estimator</span>
-            </button>
+              <Sparkles className="w-4 h-4" />
+              <span>Request Quote</span>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -407,15 +427,15 @@ export default function ServicesPage() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-400 flex items-center justify-center border border-orange-500/20 group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 rounded-2xl bg-[#CA3333]/10 text-[#CA3333] flex items-center justify-center border border-[#CA3333]/20 group-hover:scale-110 transition-transform">
                         <ServiceIcon className="w-6 h-6" />
                       </div>
-                      <span className="text-[10px] font-mono text-orange-400 bg-orange-500/10 px-2.5 py-0.5 rounded border border-orange-500/20 uppercase">
+                      <span className="text-[10px] font-mono text-[#2BA2DD] bg-[#2BA2DD]/10 px-2.5 py-0.5 rounded border border-[#2BA2DD]/20 uppercase">
                         Apexitse Service
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors leading-snug">
+                    <h3 className="text-lg font-bold text-white group-hover:text-[#2BA2DD] transition-colors leading-snug">
                       {service.title}
                     </h3>
 
@@ -426,7 +446,7 @@ export default function ServicesPage() {
                     <div className="space-y-1.5 pt-1">
                       {service.features.slice(0, 3).map((feat, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-[11px] text-slate-400">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#2BA2DD] shrink-0" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -436,7 +456,7 @@ export default function ServicesPage() {
                   <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
                     <span className="text-xs font-bold text-slate-300 group-hover:text-white flex items-center gap-1.5">
                       <span>View Specifications & Process</span>
-                      <ArrowRight className="w-4 h-4 text-orange-400" />
+                      <ArrowRight className="w-4 h-4 text-[#CA3333]" />
                     </span>
                   </div>
                 </div>
@@ -461,15 +481,15 @@ export default function ServicesPage() {
             </button>
 
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-orange-500/10 text-orange-400 flex items-center justify-center border border-orange-500/20 shrink-0">
+              <div className="w-14 h-14 rounded-2xl bg-[#CA3333]/10 text-[#CA3333] flex items-center justify-center border border-[#CA3333]/20 shrink-0">
                 {React.createElement(selectedService.icon, { className: "w-8 h-8" })}
               </div>
               <div className="space-y-1">
-                <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest bg-orange-500/10 px-2.5 py-0.5 rounded border border-orange-500/20">
+                <span className="text-xs font-mono font-bold text-[#2BA2DD] uppercase tracking-widest bg-[#2BA2DD]/10 px-2.5 py-0.5 rounded border border-[#2BA2DD]/20">
                   Apex Itse Nig Ltd. Service
                 </span>
                 <h2 className="text-2xl font-bold text-white leading-tight">{selectedService.title}</h2>
-                <p className="text-xs text-orange-400 font-medium">{selectedService.subtitle}</p>
+                <p className="text-xs text-[#2BA2DD] font-medium">{selectedService.subtitle}</p>
               </div>
             </div>
 
@@ -480,13 +500,13 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
               <div className="space-y-3">
                 <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#CA3333]" />
                   <span>Key Features & Benefits</span>
                 </h3>
                 <div className="space-y-2">
                   {selectedService.features.map((f, idx) => (
                     <div key={idx} className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800/80 text-xs text-slate-300 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#CA3333] shrink-0" />
                       <span>{f}</span>
                     </div>
                   ))}
@@ -495,7 +515,7 @@ export default function ServicesPage() {
 
               <div className="space-y-3">
                 <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-amber-400" />
+                  <FileText className="w-4 h-4 text-[#2BA2DD]" />
                   <span>Technical Specifications</span>
                 </h3>
                 <div className="space-y-2">
@@ -514,16 +534,15 @@ export default function ServicesPage() {
               </div>
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
-                <button
-                  onClick={() => {
-                    setSelectedService(null);
-                    setQuoteModalOpen(true);
-                  }}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20"
+                <a
+                  href={`https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20${encodeURIComponent(selectedService.title)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#CA3333] hover:bg-[#B22B2B] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#CA3333]/20"
                 >
-                  <Calculator className="w-4 h-4" />
-                  <span>Calculate Cost Estimate</span>
-                </button>
+                  <Sparkles className="w-4 h-4" />
+                  <span>Request Service Quote</span>
+                </a>
               </div>
             </div>
 
@@ -531,9 +550,7 @@ export default function ServicesPage() {
         </div>
       )}
 
-      {/* Instant Quote Modal */}
-      <QuoteModal isOpen={quoteModalOpen} onClose={() => setQuoteModalOpen(false)} />
-
+      {/* End of Services Page */}
     </div>
   );
 }

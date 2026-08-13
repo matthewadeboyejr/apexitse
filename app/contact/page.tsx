@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { 
   Building2, 
@@ -8,44 +9,16 @@ import {
   Phone, 
   Mail, 
   Clock, 
-  Send, 
+  MessageSquare,
+  ExternalLink,
   CheckCircle2, 
   ChevronDown, 
   ChevronUp, 
   ShieldCheck, 
-  Calculator,
-  Upload,
   Sparkles
 } from "lucide-react";
-import QuoteModal from "@/components/QuoteModal";
-
 export default function ContactPage() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    location: "Abuja",
-    service: "handrails",
-    areaSqm: "100",
-    message: ""
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-  };
 
   const faqs = [
     {
@@ -71,21 +44,62 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="space-y-20 pb-20">
+    <div className="space-y-24 pb-20">
       
-      {/* PAGE HERO */}
-      <section className="relative pt-12 pb-16 bg-radial-gradient">
+      {/* 1. HERO BANNER CARD */}
+      <section className="relative pt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20">
-              Get In Touch
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight font-mono">
-              Contact & Project Consultation
-            </h1>
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-              Have an upcoming construction finishing, glass fitting, or metal fabrication project? Speak directly with our Abuja office team.
-            </p>
+          <div className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl min-h-[440px] flex items-center">
+            
+            {/* Background Image Container */}
+            <div className="absolute inset-0 w-full h-full">
+              <Image
+                src="/images/hero_facade.jpeg"
+                alt="Apex Itse Headquarters Contact"
+                fill
+                priority
+                className="object-cover object-center opacity-30"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent" />
+            </div>
+
+            {/* Banner Content */}
+            <div className="relative z-10 max-w-2xl p-8 sm:p-14 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-[#CA3333]/40 text-[#2BA2DD] text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+                <Sparkles className="w-4 h-4 text-[#CA3333]" />
+                <span>Abuja Headquarters & Consultation Desk</span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] font-mono">
+                Contact <span className="text-[#CA3333]">Apex Itse</span> Nig Ltd.
+              </h1>
+
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
+                Have an upcoming architectural finishing, glass fitting, or metal fabrication project? Connect directly with our Abuja engineering team or visit our office at Jabi Plaza.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20inquire%20about%20a%20project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-[#25D366]/20 transition-all flex items-center gap-2"
+                >
+                  <MessageSquare className="w-4 h-4 text-slate-950" />
+                  <span>WhatsApp Direct Chat</span>
+                </a>
+
+                <a
+                  href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-7 py-4 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white font-bold text-sm uppercase tracking-wider border border-slate-700 backdrop-blur-md transition-all flex items-center justify-center"
+                >
+                  Request Online Quote
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -96,191 +110,118 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
-            {/* Form Column */}
+            {/* WhatsApp Direct Consultation Column */}
             <div className="lg:col-span-7">
-              <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl space-y-8 relative overflow-hidden">
                 
-                <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-mono font-bold border border-orange-500/20">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Project Inquiry & Site Survey Request</span>
+                {/* Background glow */}
+                <div className="absolute top-0 right-0 w-72 h-72 bg-[#25D366]/10 rounded-full blur-3xl pointer-events-none" />
+
+                <div className="space-y-3 relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#25D366]/10 text-[#25D366] text-xs font-mono font-bold border border-[#25D366]/30">
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Instant WhatsApp Consultation Desk</span>
                   </div>
-                  <h2 className="text-2xl font-bold text-white">Send Us a Direct Message</h2>
-                  <p className="text-xs text-slate-400">
-                    Fill in your project requirements below. Our technical team responds promptly.
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Chat Directly on WhatsApp
+                  </h2>
+                  <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                    Skip the email forms! Connect instantly with our Abuja engineering team on WhatsApp for site measurements, BOQ review, architectural drawings, or immediate project inquiries.
                   </p>
                 </div>
 
-                {!formSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-400 mb-1">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          name="name"
-                          placeholder="e.g. Arc. Ibrahim Musa"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-                        />
+                {/* Primary WhatsApp Action Buttons */}
+                <div className="space-y-4 relative z-10">
+                  <a
+                    href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20inquire%20about%20a%20finishing%20project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full p-5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-[#25D366]/20 flex items-center justify-between transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-slate-950/15 flex items-center justify-center">
+                        <MessageSquare className="w-6 h-6 text-slate-950" />
                       </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-400 mb-1">
-                          Company / Firm (Optional)
-                        </label>
-                        <input
-                          type="text"
-                          name="company"
-                          placeholder="e.g. Apex Developments"
-                          value={formData.company}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-                        />
+                      <div className="text-left">
+                        <span className="block text-xs font-bold uppercase tracking-wider text-slate-900">
+                          Primary Line (WhatsApp Direct)
+                        </span>
+                        <span className="block text-lg font-extrabold font-mono text-slate-950">
+                          07064965467
+                        </span>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-400 mb-1">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          name="email"
-                          placeholder="ibrahim@domain.com"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-                        />
-                      </div>
+                    <div className="flex items-center gap-1 text-xs font-bold">
+                      <span>Chat Now</span>
+                      <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </a>
 
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-400 mb-1">
-                          Phone Number (WhatsApp) *
-                        </label>
-                        <input
-                          type="tel"
-                          required
-                          name="phone"
-                          placeholder="07064965467"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-                        />
+                  <a
+                    href="https://wa.me/2349166806838?text=Hello%20Apexitse%2C%20I%20have%20a%20project%20inquiry"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full p-5 rounded-2xl bg-slate-800 hover:bg-slate-750 text-white border border-slate-700 font-bold text-sm uppercase tracking-wider shadow-lg flex items-center justify-between transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center border border-[#25D366]/30">
+                        <MessageSquare className="w-5 h-5" />
+                      </div>
+                      <div className="text-left">
+                        <span className="block text-xs font-semibold text-slate-400">
+                          Secondary Line (WhatsApp Desk)
+                        </span>
+                        <span className="block text-base font-bold font-mono text-white">
+                          09166806838
+                        </span>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-400 mb-1">
-                          Project Location
-                        </label>
-                        <select
-                          name="location"
-                          value={formData.location}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:outline-none focus:border-orange-500"
-                        >
-                          <option value="Abuja">Abuja (FCT)</option>
-                          <option value="Lagos">Lagos State</option>
-                          <option value="Rivers">Port Harcourt (Rivers)</option>
-                          <option value="Kano">Kano State</option>
-                          <option value="Oyo">Ibadan (Oyo)</option>
-                          <option value="Other">Other State / West Africa</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-400 mb-1">
-                          Primary Service
-                        </label>
-                        <select
-                          name="service"
-                          value={formData.service}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:outline-none focus:border-orange-500"
-                        >
-                          <option value="handrails">Handrails & Balustrades</option>
-                          <option value="shower">Bathroom Shower Cubicles</option>
-                          <option value="burglar">Burglar Proof Fabrication</option>
-                          <option value="partitioning">Office Partitioning (Glass/Board)</option>
-                          <option value="laser">Laser Cut Decorative Designs</option>
-                          <option value="carports">Carports & Pergolas</option>
-                          <option value="general">General Contracting</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-400 mb-1">
-                          Approx. Area (m²)
-                        </label>
-                        <input
-                          type="number"
-                          name="areaSqm"
-                          placeholder="e.g. 100"
-                          value={formData.areaSqm}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-                        />
-                      </div>
+                    <div className="flex items-center gap-1 text-xs font-bold text-[#2BA2DD]">
+                      <span>Send Message</span>
+                      <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
+                  </a>
+                </div>
 
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-400 mb-1">
-                        Project Scope & Message *
-                      </label>
-                      <textarea
-                        required
-                        rows={4}
-                        name="message"
-                        placeholder="Describe your site condition, architectural drawings, or material preferences..."
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-                      />
+                {/* Consultation Advantages Box */}
+                <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800/80 space-y-3 relative z-10">
+                  <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider block">
+                    What You Can Send Us On WhatsApp:
+                  </span>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                    <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800">
+                      <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0" />
+                      <span>Architectural PDF / DWG Files</span>
                     </div>
-
-                    <div className="p-4 rounded-xl bg-slate-950 border border-dashed border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                      <div className="flex items-center gap-2">
-                        <Upload className="w-4 h-4 text-orange-400" />
-                        <span>Attach Architectural Drawings / BOQ (PDF, DWG)</span>
-                      </div>
-                      <span className="text-[10px] text-slate-500">Max 25MB</span>
+                    <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800">
+                      <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0" />
+                      <span>Bill of Quantities (BOQ)</span>
                     </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-4 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      <Send className="w-4 h-4" />
-                      <span>Submit Inquiry to Abuja Office</span>
-                    </button>
-
-                  </form>
-                ) : (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-500/20">
-                      <CheckCircle2 className="w-10 h-10" />
+                    <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800">
+                      <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0" />
+                      <span>Job Site Photos & Videos</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white">Inquiry Sent Successfully!</h3>
-                    <p className="text-xs text-slate-300 max-w-md mx-auto">
-                      Thank you, <strong className="text-orange-400">{formData.name}</strong>. Your request has been sent to our Jabi Plaza office in Abuja. We will reach out to you shortly.
-                    </p>
-                    <button
-                      onClick={() => setFormSubmitted(false)}
-                      className="px-6 py-2.5 rounded-xl bg-slate-800 text-slate-200 text-xs font-semibold"
-                    >
-                      Send Another Message
-                    </button>
+                    <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800">
+                      <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0" />
+                      <span>Request Site Measurement</span>
+                    </div>
                   </div>
-                )}
+                </div>
+
+                <div className="pt-2 border-t border-slate-800 text-center">
+                  <a
+                    href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#2BA2DD] hover:text-[#38BDF8] uppercase tracking-wider"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    <span>Direct WhatsApp Inquiry Desk</span>
+                  </a>
+                </div>
 
               </div>
             </div>
@@ -290,13 +231,13 @@ export default function ContactPage() {
               
               <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl space-y-6">
                 <h3 className="text-lg font-bold text-white flex items-center gap-2 font-mono">
-                  <Building2 className="w-5 h-5 text-orange-400" />
+                  <Building2 className="w-5 h-5 text-[#2BA2DD]" />
                   <span>Abuja Corporate Office</span>
                 </h3>
 
                 <div className="space-y-4 text-xs text-slate-300">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                    <MapPin className="w-5 h-5 text-[#2BA2DD] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-semibold mb-0.5">Physical Address:</strong>
                       <span>Suit C11, Jabi Plaza, Obafemi Awolowo Way, Jabi, Abuja, Nigeria</span>
@@ -304,14 +245,14 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                    <Phone className="w-5 h-5 text-[#2BA2DD] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-semibold mb-0.5">Direct Phone Lines:</strong>
                       <div className="flex flex-col gap-0.5">
-                        <a href="tel:07064965467" className="hover:text-orange-400 transition-colors font-mono">
+                        <a href="tel:07064965467" className="hover:text-[#2BA2DD] transition-colors font-mono">
                           07064965467
                         </a>
-                        <a href="tel:09166806838" className="hover:text-orange-400 transition-colors font-mono">
+                        <a href="tel:09166806838" className="hover:text-[#2BA2DD] transition-colors font-mono">
                           09166806838
                         </a>
                       </div>
@@ -319,17 +260,17 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                    <Mail className="w-5 h-5 text-[#2BA2DD] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-semibold mb-0.5">Official Email:</strong>
-                      <a href="mailto:apexitse@gmail.com" className="hover:text-orange-400 transition-colors font-mono">
+                      <a href="mailto:apexitse@gmail.com" className="hover:text-[#2BA2DD] transition-colors font-mono">
                         apexitse@gmail.com
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                    <Clock className="w-5 h-5 text-[#2BA2DD] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-semibold mb-0.5">Operating Hours:</strong>
                       <span>Monday – Saturday: 8:00 AM – 6:00 PM</span>
@@ -338,13 +279,15 @@ export default function ContactPage() {
                 </div>
 
                 <div className="pt-2 border-t border-slate-800">
-                  <button
-                    onClick={() => setQuoteModalOpen(true)}
+                  <a
+                    href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20project"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-700"
                   >
-                    <Calculator className="w-4 h-4 text-orange-400" />
-                    <span>Launch Instant Cost Estimator</span>
-                  </button>
+                    <Sparkles className="w-4 h-4 text-[#2BA2DD]" />
+                    <span>Request Project Quote</span>
+                  </a>
                 </div>
               </div>
 
@@ -360,7 +303,7 @@ export default function ContactPage() {
                 <div className="relative w-full h-48 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex items-center justify-center group">
                   <div className="absolute inset-0 bg-grid-pattern opacity-40" />
                   <div className="text-center space-y-2 relative z-10 p-4">
-                    <div className="w-10 h-10 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center mx-auto border border-orange-500/40 animate-pulse">
+                    <div className="w-10 h-10 rounded-full bg-[#CA3333]/20 text-[#CA3333] flex items-center justify-center mx-auto border border-[#CA3333]/40 animate-pulse">
                       <MapPin className="w-6 h-6" />
                     </div>
                     <span className="text-xs font-bold text-white block">Apex Itse Nig Ltd. - Suit C11, Jabi Plaza</span>
@@ -381,7 +324,7 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           <div className="text-center space-y-3">
-            <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20">
+            <span className="text-xs font-mono font-bold text-[#CA3333] uppercase tracking-widest px-3 py-1 rounded bg-[#CA3333]/10 border border-[#CA3333]/20">
               Clear Guidance
             </span>
             <h2 className="text-3xl font-extrabold text-white tracking-tight">
@@ -403,7 +346,7 @@ export default function ContactPage() {
                   >
                     <span className="text-sm font-bold text-white">{faq.q}</span>
                     {isOpen ? (
-                      <ChevronUp className="w-5 h-5 text-orange-400 shrink-0" />
+                      <ChevronUp className="w-5 h-5 text-[#2BA2DD] shrink-0" />
                     ) : (
                       <ChevronDown className="w-5 h-5 text-slate-500 shrink-0" />
                     )}
@@ -422,9 +365,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Instant Quote Modal */}
-      <QuoteModal isOpen={quoteModalOpen} onClose={() => setQuoteModalOpen(false)} />
-
+      {/* End of Contact Page */}
     </div>
   );
 }

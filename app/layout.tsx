@@ -41,7 +41,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${outfit.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-[#060b17] text-slate-100 selection:bg-orange-500 selection:text-white">
+      <body className="min-h-full flex flex-col bg-[#060b17] text-slate-100 selection:bg-[#CA3333] selection:text-white">
         <Navbar />
         <main className="flex-grow pt-20">{children}</main>
         <Footer />
