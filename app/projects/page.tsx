@@ -8,56 +8,131 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  Maximize2
+  Maximize2,
+  Play,
+  Video,
+  Film,
+  Camera
 } from "lucide-react";
 
-interface GalleryItem {
+export interface GalleryMedia {
   id: number;
+  type: "image" | "video";
   src: string;
+  poster?: string;
   alt: string;
+  title: string;
 }
 
 export default function ProjectsPage() {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<"all" | "image" | "video">("all");
+  const [selectedMediaIndex, setSelectedMediaIndex] = useState<number | null>(null);
 
-  const galleryImages: GalleryItem[] = [
-    { id: 1, src: "/images/product1.jpeg", alt: "Apexitse Project Showcase 1" },
-    { id: 2, src: "/images/prouduct2.jpeg", alt: "Apexitse Project Showcase 2" },
-    { id: 3, src: "/images/prouduct3.jpeg", alt: "Apexitse Project Showcase 3" },
-    { id: 4, src: "/images/prouduct4.jpeg", alt: "Apexitse Project Showcase 4" },
-    { id: 5, src: "/images/prouduct5.jpeg", alt: "Apexitse Project Showcase 5" },
-    { id: 6, src: "/images/prouduct6.jpeg", alt: "Apexitse Project Showcase 6" },
-    { id: 7, src: "/images/prouduct7.jpeg", alt: "Apexitse Project Showcase 7" },
-    { id: 8, src: "/images/prouduct8.jpeg", alt: "Apexitse Project Showcase 8" },
-    { id: 9, src: "/images/prouduct9.jpeg", alt: "Apexitse Project Showcase 9" },
-    { id: 10, src: "/images/prouduct10.jpeg", alt: "Apexitse Project Showcase 10" },
-    { id: 11, src: "/images/prouduct11.jpeg", alt: "Apexitse Project Showcase 11" },
-    { id: 12, src: "/images/prouduct12.jpeg", alt: "Apexitse Project Showcase 12" },
-    { id: 13, src: "/images/prouduct13.jpeg", alt: "Apexitse Project Showcase 13" },
-    { id: 14, src: "/images/prouduct14.jpeg", alt: "Apexitse Project Showcase 14" },
-    { id: 15, src: "/images/prouduct15.jpeg", alt: "Apexitse Project Showcase 15" },
-    { id: 16, src: "/images/prouduct16.jpeg", alt: "Apexitse Project Showcase 16" },
-    { id: 17, src: "/images/prouduct17.jpeg", alt: "Apexitse Project Showcase 17" },
-    { id: 18, src: "/images/prouduct18.jpeg", alt: "Apexitse Project Showcase 18" },
-    { id: 19, src: "/images/prouduct19.jpeg", alt: "Apexitse Project Showcase 19" },
-    { id: 20, src: "/images/prouduct20.jpeg", alt: "Apexitse Project Showcase 20" }
+  const galleryImages: GalleryMedia[] = [
+    { id: 1, type: "image", src: "/images/product1.jpeg", alt: "Apexitse Project Showcase 1", title: "Frameless Glass Balustrade" },
+    { id: 2, type: "image", src: "/images/prouduct2.jpeg", alt: "Apexitse Project Showcase 2", title: "Burglar Proof Steel Gate" },
+    { id: 3, type: "image", src: "/images/prouduct3.jpeg", alt: "Apexitse Project Showcase 3", title: "Stainless Steel Handrail" },
+    { id: 4, type: "image", src: "/images/prouduct4.jpeg", alt: "Apexitse Project Showcase 4", title: "Alucobond ACP Facade" },
+    { id: 5, type: "image", src: "/images/prouduct5.jpeg", alt: "Apexitse Project Showcase 5", title: "Acoustic Glass Office Partition" },
+    { id: 6, type: "image", src: "/images/prouduct6.jpeg", alt: "Apexitse Project Showcase 6", title: "CNC Laser Cut Wall Screen" },
+    { id: 7, type: "image", src: "/images/prouduct7.jpeg", alt: "Apexitse Project Showcase 7", title: "Tempered Glass Shower Enclosure" },
+    { id: 8, type: "image", src: "/images/prouduct8.jpeg", alt: "Apexitse Project Showcase 8", title: "Structural Steel Carport" },
+    { id: 9, type: "image", src: "/images/prouduct9.jpeg", alt: "Apexitse Project Showcase 9", title: "Stainless Steel Stair Handrail" },
+    { id: 10, type: "image", src: "/images/prouduct10.jpeg", alt: "Apexitse Project Showcase 10", title: "Frameless Glass Balustrade System" },
+    { id: 11, type: "image", src: "/images/prouduct11.jpeg", alt: "Apexitse Project Showcase 11", title: "Alucobond ACP Cladding Facade" },
+    { id: 12, type: "image", src: "/images/prouduct12.jpeg", alt: "Apexitse Project Showcase 12", title: "Architectural Pergola Shade" },
+    { id: 13, type: "image", src: "/images/prouduct13.jpeg", alt: "Apexitse Project Showcase 13", title: "Bathroom Glass Cubicle" },
+    { id: 14, type: "image", src: "/images/prouduct14.jpeg", alt: "Apexitse Project Showcase 14", title: "CNC Laser Decorative Screen" },
+    { id: 15, type: "image", src: "/images/prouduct15.jpeg", alt: "Apexitse Project Showcase 15", title: "High-Security Wrought Iron Fence" },
+    { id: 16, type: "image", src: "/images/prouduct16.jpeg", alt: "Apexitse Project Showcase 16", title: "Executive Office Partitioning" },
+    { id: 17, type: "image", src: "/images/prouduct17.jpeg", alt: "Apexitse Project Showcase 17", title: "Structural Steel Staircase" },
+    { id: 18, type: "image", src: "/images/prouduct18.jpeg", alt: "Apexitse Project Showcase 18", title: "Outdoor Canopy Structure" },
+    { id: 19, type: "image", src: "/images/prouduct19.jpeg", alt: "Apexitse Project Showcase 19", title: "Custom Glass Partition Wall" },
+    { id: 20, type: "image", src: "/images/prouduct20.jpeg", alt: "Apexitse Project Showcase 20", title: "Stainless Steel Balcony Railing" },
+    { id: 21, type: "image", src: "/images/prouduct21.jpeg", alt: "Apexitse Project Showcase 21", title: "Commercial ACP Cladding" },
+    { id: 22, type: "image", src: "/images/prouduct22.jpeg", alt: "Apexitse Project Showcase 22", title: "Automated Sliding Gate" },
+    { id: 23, type: "image", src: "/images/prouduct23.jpeg", alt: "Apexitse Project Showcase 23", title: "Tempered Glass Door System" },
+    { id: 24, type: "image", src: "/images/prouduct24.jpeg", alt: "Apexitse Project Showcase 24", title: "Custom Laser Cut Gate Panel" },
+    { id: 25, type: "image", src: "/images/prouduct25.jpeg", alt: "Apexitse Project Showcase 25", title: "Perimeter Security Fencing" },
+    { id: 26, type: "image", src: "/images/prouduct26.jpeg", alt: "Apexitse Project Showcase 26", title: "Modern Aluminum Window System" },
+    { id: 27, type: "image", src: "/images/prouduct27.jpeg", alt: "Apexitse Project Showcase 27", title: "Glass Staircase Balustrade" },
+    { id: 28, type: "image", src: "/images/prouduct28.jpeg", alt: "Apexitse Project Showcase 28", title: "Commercial Signage Structure" },
+    { id: 29, type: "image", src: "/images/prouduct29.jpeg", alt: "Apexitse Project Showcase 29", title: "Luxury Mirror Wall Panel" },
+    { id: 30, type: "image", src: "/images/prouduct30.jpeg", alt: "Apexitse Project Showcase 30", title: "Tensile Carport Canopy" },
+    { id: 31, type: "image", src: "/images/prouduct31.jpeg", alt: "Apexitse Project Showcase 31", title: "Custom Metal Railing System" },
+    { id: 32, type: "image", src: "/images/prouduct32.jpeg", alt: "Apexitse Project Showcase 32", title: "Frameless Shower Door" },
+    { id: 33, type: "image", src: "/images/prouduct33.jpeg", alt: "Apexitse Project Showcase 33", title: "Alucobond Architectural Facade" },
+    { id: 34, type: "image", src: "/images/prouduct34.jpeg", alt: "Apexitse Project Showcase 34", title: "CNC Laser Privacy Screen" },
+    { id: 35, type: "image", src: "/images/prouduct35.jpeg", alt: "Apexitse Project Showcase 35", title: "Structural Steel Frame Work" }
   ];
+
+  const galleryVideos: GalleryMedia[] = [
+    {
+      id: 101,
+      type: "video",
+      src: "/images/video1.mp4",
+      poster: "/images/hero_facade.jpeg",
+      alt: "Alucobond ACP Exterior Cladding Site Execution",
+      title: "Alucobond ACP Cladding Site Reel 01"
+    },
+    {
+      id: 102,
+      type: "video",
+      src: "/images/video2.mp4",
+      poster: "/images/glass_balustrade.jpeg",
+      alt: "Frameless Glass Balustrade & Handrail Fitting",
+      title: "Glass Balustrade Installation Reel 02"
+    },
+    {
+      id: 103,
+      type: "video",
+      src: "/images/video3.mp4",
+      poster: "/images/prouduct14.jpeg",
+      alt: "Precision CNC Laser Cut Metal Fabrication",
+      title: "CNC Laser Cut Metalwork Reel 03"
+    },
+    {
+      id: 104,
+      type: "video",
+      src: "/images/video4.mp4",
+      poster: "/images/prouduct12.jpeg",
+      alt: "Structural Carport & Canopy Installation",
+      title: "Structural Carport & Canopy Reel 04"
+    },
+    {
+      id: 105,
+      type: "video",
+      src: "/images/video5.mp4",
+      poster: "/images/interior.png",
+      alt: "Turnkey Office Partitioning & Interior Finishing",
+      title: "Office Partitioning Fit-Out Reel 05"
+    }
+  ];
+
+  const allMedia: GalleryMedia[] = [...galleryVideos, ...galleryImages];
+
+  const filteredMedia = allMedia.filter((item) => {
+    if (activeTab === "all") return true;
+    return item.type === activeTab;
+  });
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((selectedImageIndex + 1) % galleryImages.length);
+    if (selectedMediaIndex !== null) {
+      setSelectedMediaIndex((selectedMediaIndex + 1) % filteredMedia.length);
     }
   };
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex(
-        (selectedImageIndex - 1 + galleryImages.length) % galleryImages.length
+    if (selectedMediaIndex !== null) {
+      setSelectedMediaIndex(
+        (selectedMediaIndex - 1 + filteredMedia.length) % filteredMedia.length
       );
     }
   };
+
+  const currentMedia = selectedMediaIndex !== null ? filteredMedia[selectedMediaIndex] : null;
 
   return (
     <div className="space-y-24 pb-20">
@@ -66,7 +141,7 @@ export default function ProjectsPage() {
       <section className="relative pt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl min-h-[440px] flex items-center">
-
+            
             {/* Background Image Container */}
             <div className="absolute inset-0 w-full h-full">
               <Image
@@ -83,15 +158,15 @@ export default function ProjectsPage() {
             <div className="relative z-10 max-w-2xl p-8 sm:p-14 space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-[#CA3333]/40 text-[#2BA2DD] text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
                 <Sparkles className="w-4 h-4 text-[#CA3333]" />
-                <span>Completed Works & Site Execution</span>
+                <span>On-Site Execution & Video Portfolio</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] font-mono">
-                Project <span className="text-[#CA3333]">Gallery</span> Portfolio
+                Project <span className="text-[#CA3333]">Gallery</span> & Reels
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-                Explore our showcase of completed architectural finishing, frameless glass fittings, Alucobond ACP cladding, and structural metalwork installations across Nigeria.
+                Explore our showcase of 35 high-definition project photos and 5 on-site video reels documenting Alucobond ACP cladding, frameless glass balustrades, and structural metalwork across Nigeria.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
@@ -119,97 +194,203 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* GALLERY GRID SECTION */}
-      <section className="relative py-4">
+      {/* 2. MEDIA CATEGORY TAB FILTERS */}
+      <section className="relative py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {galleryImages.map((img, idx) => (
-              <div
-                key={img.id}
-                onClick={() => setSelectedImageIndex(idx)}
-                className="relative h-72 sm:h-80 rounded-2xl overflow-hidden glass-panel glass-panel-hover group cursor-pointer border border-slate-800 shadow-xl"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            
+            {/* Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2">
+              {[
+                { id: "all", label: `All Media (${allMedia.length})`, icon: Film },
+                { id: "image", label: `Photos (${galleryImages.length})`, icon: Camera },
+                { id: "video", label: `On-Site Video Reels (${galleryVideos.length})`, icon: Video }
+              ].map((tab) => {
+                const TabIcon = tab.icon;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      setActiveTab(tab.id as any);
+                      setSelectedMediaIndex(null);
+                    }}
+                    className={`px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
+                      activeTab === tab.id
+                        ? "bg-[#CA3333] text-white shadow-lg shadow-[#CA3333]/25 border border-[#CA3333]"
+                        : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700"
+                    }`}
+                  >
+                    <TabIcon className={`w-4 h-4 ${activeTab === tab.id ? "text-white" : "text-[#2BA2DD]"}`} />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-                {/* Subtle Hover Overlay */}
-                <div className="absolute inset-0 bg-[#060b17]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="p-3 rounded-full bg-slate-900/90 text-[#2BA2DD] border border-[#2BA2DD]/40 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <Maximize2 className="w-5 h-5" />
-                  </div>
-                </div>
+            <span className="text-xs font-mono text-slate-400">
+              Showing <strong className="text-[#2BA2DD]">{filteredMedia.length}</strong> items
+            </span>
 
-                <div className="absolute bottom-3 left-3 bg-slate-900/80 text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded border border-slate-700/80 backdrop-blur-md">
-                  Project #{img.id}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* LIGHTBOX MODAL VIEWER */}
-      {selectedImageIndex !== null && (
+      {/* 3. GALLERY GRID SECTION */}
+      <section className="relative py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredMedia.map((item, idx) => {
+              const isVideo = item.type === "video";
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => setSelectedMediaIndex(idx)}
+                  className={`relative h-72 sm:h-80 rounded-3xl overflow-hidden glass-panel glass-panel-hover group cursor-pointer border transition-all duration-300 shadow-xl ${
+                    isVideo
+                      ? "border-[#CA3333]/40 hover:border-[#CA3333]"
+                      : "border-slate-800 hover:border-[#2BA2DD]/40"
+                  }`}
+                >
+                  {/* Video or Image Preview Container */}
+                  {isVideo ? (
+                    <video
+                      src={`${item.src}#t=0.5`}
+                      preload="metadata"
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                    />
+                  ) : (
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
+
+                  {/* Video Play Overlay Button */}
+                  {isVideo && (
+                    <div className="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-colors flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-full bg-[#CA3333] text-white flex items-center justify-center shadow-2xl shadow-[#CA3333]/50 border-2 border-white/20 group-hover:scale-110 transition-transform">
+                        <Play className="w-6 h-6 fill-white translate-x-0.5" />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Photo Hover Overlay */}
+                  {!isVideo && (
+                    <div className="absolute inset-0 bg-[#060b17]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="p-3 rounded-full bg-slate-900/90 text-[#2BA2DD] border border-[#2BA2DD]/40 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <Maximize2 className="w-5 h-5" />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Badge Overlay */}
+                  <div className="absolute top-3 left-3">
+                    {isVideo ? (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#CA3333] text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-md">
+                        <Video className="w-3 h-3" />
+                        <span>Site Video</span>
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-950/80 text-slate-300 text-[10px] font-mono font-bold border border-slate-700/80 backdrop-blur-md">
+                        Photo #{item.id}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Title Bar Footer */}
+                  <div className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent text-white text-xs font-mono font-bold truncate">
+                    {item.title}
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. LIGHTBOX MEDIA VIEWER (Supports Photos & Lazy Video Player) */}
+      {currentMedia && (
         <div
-          onClick={() => setSelectedImageIndex(null)}
+          onClick={() => setSelectedMediaIndex(null)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-200"
         >
+          {/* Close Button */}
           <button
-            onClick={() => setSelectedImageIndex(null)}
-            className="absolute top-5 right-5 z-50 p-2.5 text-slate-400 hover:text-white bg-slate-900/80 hover:bg-slate-800 rounded-full border border-slate-700 transition-colors"
-            aria-label="Close Lightbox"
+            onClick={() => setSelectedMediaIndex(null)}
+            className="absolute top-5 right-5 z-50 p-2.5 text-slate-400 hover:text-white bg-slate-900/80 hover:bg-slate-800 rounded-full border border-slate-700 transition-colors cursor-pointer"
+            aria-label="Close Viewer"
           >
             <X className="w-6 h-6" />
           </button>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Prev Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-50 p-3 text-white bg-slate-900/80 hover:bg-[#CA3333] rounded-full border border-slate-700 transition-colors"
-            aria-label="Previous Image"
+            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-50 p-3 text-white bg-slate-900/80 hover:bg-[#CA3333] rounded-full border border-slate-700 transition-colors cursor-pointer"
+            aria-label="Previous Media"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
+          {/* Navigation Next Arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-50 p-3 text-white bg-slate-900/80 hover:bg-[#CA3333] rounded-full border border-slate-700 transition-colors"
-            aria-label="Next Image"
+            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-50 p-3 text-white bg-slate-900/80 hover:bg-[#CA3333] rounded-full border border-slate-700 transition-colors cursor-pointer"
+            aria-label="Next Media"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Image Display */}
+          {/* Main Media Player Container */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-5xl w-full h-[75vh] rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-950 flex flex-col justify-between"
+            className="relative max-w-5xl w-full h-[80vh] rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-950 flex flex-col justify-between"
           >
-            <div className="relative w-full h-full">
-              <Image
-                src={galleryImages[selectedImageIndex].src}
-                alt={galleryImages[selectedImageIndex].alt}
-                fill
-                className="object-contain p-2"
-                priority
-              />
+            <div className="relative w-full h-full flex items-center justify-center bg-black overflow-hidden">
+              {currentMedia.type === "video" ? (
+                <video
+                  src={currentMedia.src}
+                  poster={currentMedia.poster}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                <Image
+                  src={currentMedia.src}
+                  alt={currentMedia.alt}
+                  fill
+                  className="object-contain p-2"
+                  priority
+                />
+              )}
             </div>
 
-            {/* Bottom Bar */}
-            <div className="p-4 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between gap-4">
-              <span className="text-xs font-mono font-bold text-white">
-                Project Image {selectedImageIndex + 1} of {galleryImages.length}
-              </span>
+            {/* Bottom Info & Action Bar */}
+            <div className="p-4 bg-slate-900/90 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="space-y-0.5 text-left w-full sm:w-auto">
+                <span className="text-xs font-mono font-bold text-white block">
+                  {currentMedia.title}
+                </span>
+                <span className="text-[11px] font-mono text-slate-400 block">
+                  {currentMedia.type === "video" ? "On-Site Execution Video" : "Project Photo"} ({selectedMediaIndex! + 1} of {filteredMedia.length})
+                </span>
+              </div>
 
               <a
-                href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20saw%20your%20project%20gallery%20and%20would%20like%20a%20quote"
+                href={`https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20saw%20${encodeURIComponent(currentMedia.title)}%20in%20your%20gallery%20and%20would%20like%20a%20quote`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2 rounded-xl bg-[#CA3333] hover:bg-[#b22b2b] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md shadow-[#CA3333]/20"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#CA3333] hover:bg-[#b22b2b] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-[#CA3333]/20"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Request Project Quote</span>
@@ -219,7 +400,7 @@ export default function ProjectsPage() {
         </div>
       )}
 
-      {/* PROJECT CTA BANNER */}
+      {/* 5. PROJECT CTA BANNER */}
       <section className="relative py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">

@@ -492,6 +492,101 @@ export default function HomePage() {
       </section>
 
 
+      {/* 5B. ON-SITE VIDEO REELS SHOWCASE */}
+      <section className="relative py-12 bg-slate-950/80 border-y border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-2">
+              <span className="text-xs font-mono font-bold text-[#CA3333] uppercase tracking-widest px-3 py-1 rounded bg-[#CA3333]/10 border border-[#CA3333]/20">
+                Live Field Footage
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
+                On-Site Execution Video Reels
+              </h2>
+              <p className="text-sm text-slate-300">
+                Watch our senior engineers and certified artisans installing Alucobond ACP, glass balustrades, and structural steel across Abuja job sites.
+              </p>
+            </div>
+
+            <Link
+              href="/projects"
+              className="px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold font-mono uppercase tracking-wider border border-slate-700 transition-all flex items-center gap-2 shrink-0"
+            >
+              <span>View All 5 Video Reels</span>
+              <ArrowRight className="w-4 h-4 text-[#2BA2DD]" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Alucobond ACP Cladding Site Reel",
+                poster: "/images/hero_facade.jpeg",
+                src: "/images/video1.mp4",
+                tag: "Exterior Facade"
+              },
+              {
+                title: "Frameless Glass Balustrade Fitting",
+                poster: "/images/glass_balustrade.jpeg",
+                src: "/images/video2.mp4",
+                tag: "Glass Fitting"
+              },
+              {
+                title: "Precision CNC Laser Cut Metalwork",
+                poster: "/images/prouduct14.jpeg",
+                src: "/images/video3.mp4",
+                tag: "Metal Fabrication"
+              }
+            ].map((vid, idx) => (
+              <Link
+                key={idx}
+                href="/projects"
+                className="group relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-[#CA3333]/50 transition-all shadow-xl h-72 sm:h-80 flex flex-col justify-between p-6 cursor-pointer"
+              >
+                {/* Authentic Video Frame Preview Container */}
+                <video
+                  src={`${vid.src}#t=0.5`}
+                  preload="metadata"
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 pointer-events-none"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+
+                {/* Top Badge */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="text-[10px] font-mono font-bold text-white bg-[#CA3333] px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                    Site Video 0{idx + 1}
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-300 bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700 backdrop-blur-md">
+                    {vid.tag}
+                  </span>
+                </div>
+
+                {/* Center Play Button */}
+                <div className="relative z-10 my-auto mx-auto w-14 h-14 rounded-full bg-[#CA3333] text-white flex items-center justify-center shadow-2xl shadow-[#CA3333]/50 border-2 border-white/20 group-hover:scale-110 transition-transform">
+                  <div className="w-0 h-0 border-y-8 border-y-transparent border-l-[14px] border-l-white translate-x-0.5" />
+                </div>
+
+                {/* Bottom Title */}
+                <div className="relative z-10 space-y-1">
+                  <h3 className="text-base font-bold text-white group-hover:text-[#2BA2DD] transition-colors">
+                    {vid.title}
+                  </h3>
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-slate-400">
+                    <span>Watch HD Reel</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#CA3333]" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+
       {/* 6. CORE VALUES SHOWCASE */}
       <section className="relative py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
