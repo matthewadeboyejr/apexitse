@@ -25,7 +25,7 @@ export interface GalleryMedia {
 }
 
 export default function ProjectsPage() {
-  const [activeTab, setActiveTab] = useState<"all" | "image" | "video">("all");
+  const [activeTab, setActiveTab] = useState<"image" | "video" | "all">("image");
   const [selectedMediaIndex, setSelectedMediaIndex] = useState<number | null>(null);
 
   const galleryImages: GalleryMedia[] = [
@@ -71,7 +71,6 @@ export default function ProjectsPage() {
       id: 101,
       type: "video",
       src: "/images/video1.mp4",
-      poster: "/images/hero_facade.jpeg",
       alt: "Alucobond ACP Exterior Cladding Site Execution",
       title: "Alucobond ACP Cladding Site Reel 01"
     },
@@ -79,15 +78,13 @@ export default function ProjectsPage() {
       id: 102,
       type: "video",
       src: "/images/video2.mp4",
-      poster: "/images/glass_balustrade.jpeg",
       alt: "Frameless Glass Balustrade & Handrail Fitting",
-      title: "Glass Balustrade Installation Reel 02"
+      title: "Glass Balustrade Fitting Reel 02"
     },
     {
       id: 103,
       type: "video",
       src: "/images/video3.mp4",
-      poster: "/images/prouduct14.jpeg",
       alt: "Precision CNC Laser Cut Metal Fabrication",
       title: "CNC Laser Cut Metalwork Reel 03"
     },
@@ -95,7 +92,6 @@ export default function ProjectsPage() {
       id: 104,
       type: "video",
       src: "/images/video4.mp4",
-      poster: "/images/prouduct12.jpeg",
       alt: "Structural Carport & Canopy Installation",
       title: "Structural Carport & Canopy Reel 04"
     },
@@ -103,9 +99,71 @@ export default function ProjectsPage() {
       id: 105,
       type: "video",
       src: "/images/video5.mp4",
-      poster: "/images/interior.png",
       alt: "Turnkey Office Partitioning & Interior Finishing",
       title: "Office Partitioning Fit-Out Reel 05"
+    },
+    {
+      id: 106,
+      type: "video",
+      src: "/images/video6.mp4",
+      alt: "Stainless Steel Staircase Handrail Installation",
+      title: "Stainless Steel Handrail Reel 06"
+    },
+    {
+      id: 107,
+      type: "video",
+      src: "/images/video7.mp4",
+      alt: "Tempered Glass Shower Cubicle Installation",
+      title: "Glass Shower Enclosure Reel 07"
+    },
+    {
+      id: 108,
+      type: "video",
+      src: "/images/video8.mp4",
+      alt: "Commercial Alucobond Facade Cladding",
+      title: "Commercial Facade Cladding Reel 08"
+    },
+    {
+      id: 109,
+      type: "video",
+      src: "/images/video9.mp4",
+      alt: "Custom Burglar Proof Steel Gate & Railing",
+      title: "Custom Steel Gate & Railing Reel 09"
+    },
+    {
+      id: 110,
+      type: "video",
+      src: "/images/video10.mp4",
+      alt: "Corporate Acoustic Glass Office Partitioning",
+      title: "Corporate Glass Partition Reel 10"
+    },
+    {
+      id: 111,
+      type: "video",
+      src: "/images/video11.mp4",
+      alt: "Heavy Structural Steel Framing & Truss Assembly",
+      title: "Structural Steel Frame Work Reel 11"
+    },
+    {
+      id: 112,
+      type: "video",
+      src: "/images/video12.mp4",
+      alt: "CNC Laser Decorative Privacy Screen",
+      title: "CNC Laser Privacy Screen Reel 12"
+    },
+    {
+      id: 113,
+      type: "video",
+      src: "/images/video13.mp4",
+      alt: "Architectural Pergola & Tensile Canopy",
+      title: "Pergola & Tensile Canopy Reel 13"
+    },
+    {
+      id: 114,
+      type: "video",
+      src: "/images/video14.mp4",
+      alt: "Modern Aluminum Window & Door Fitting",
+      title: "Aluminum Window & Door Reel 14"
     }
   ];
 
@@ -166,7 +224,7 @@ export default function ProjectsPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-                Explore our showcase of 35 high-definition project photos and 5 on-site video reels documenting Alucobond ACP cladding, frameless glass balustrades, and structural metalwork across Nigeria.
+                Explore our showcase of 35 high-definition project photos and 14 on-site video reels documenting Alucobond ACP cladding, frameless glass balustrades, and structural metalwork across Nigeria.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
@@ -202,9 +260,9 @@ export default function ProjectsPage() {
             {/* Filter Pills */}
             <div className="flex flex-wrap items-center gap-2">
               {[
-                { id: "all", label: `All Media (${allMedia.length})`, icon: Film },
                 { id: "image", label: `Photos (${galleryImages.length})`, icon: Camera },
-                { id: "video", label: `On-Site Video Reels (${galleryVideos.length})`, icon: Video }
+                { id: "video", label: `On-Site Video Reels (${galleryVideos.length})`, icon: Video },
+                { id: "all", label: `All Media (${allMedia.length})`, icon: Film }
               ].map((tab) => {
                 const TabIcon = tab.icon;
                 return (

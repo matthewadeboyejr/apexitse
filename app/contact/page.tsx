@@ -15,7 +15,8 @@ import {
   ChevronDown, 
   ChevronUp, 
   ShieldCheck, 
-  Sparkles
+  Sparkles,
+  Navigation
 } from "lucide-react";
 export default function ContactPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -147,7 +148,7 @@ export default function ContactPage() {
                           Primary Line (WhatsApp Direct)
                         </span>
                         <span className="block text-lg font-extrabold font-mono text-slate-950">
-                          07064965467
+                          +234 706 496 5467
                         </span>
                       </div>
                     </div>
@@ -173,7 +174,7 @@ export default function ContactPage() {
                           Secondary Line (WhatsApp Desk)
                         </span>
                         <span className="block text-base font-bold font-mono text-white">
-                          09166806838
+                          +234 916 680 6838
                         </span>
                       </div>
                     </div>
@@ -249,11 +250,11 @@ export default function ContactPage() {
                     <div>
                       <strong className="text-white block font-semibold mb-0.5">Direct Phone Lines:</strong>
                       <div className="flex flex-col gap-0.5">
-                        <a href="tel:07064965467" className="hover:text-[#2BA2DD] transition-colors font-mono">
-                          07064965467
+                        <a href="tel:+2347064965467" className="hover:text-[#2BA2DD] transition-colors font-mono">
+                          +234 706 496 5467
                         </a>
-                        <a href="tel:09166806838" className="hover:text-[#2BA2DD] transition-colors font-mono">
-                          09166806838
+                        <a href="tel:+2349166806838" className="hover:text-[#2BA2DD] transition-colors font-mono">
+                          +234 916 680 6838
                         </a>
                       </div>
                     </div>
@@ -291,25 +292,46 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Interactive Map UI Container */}
+              {/* Interactive Live Map Container */}
               <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-4 shadow-xl">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-white uppercase">Location Map (Jabi, Abuja)</span>
-                  <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                    Jabi Plaza Office
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-[#CA3333]" />
+                    <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                      Live Location Map (Abuja HQ)
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 font-mono font-bold">
+                    Suit C11, Jabi Plaza
                   </span>
                 </div>
                 
-                <div className="relative w-full h-48 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex items-center justify-center group">
-                  <div className="absolute inset-0 bg-grid-pattern opacity-40" />
-                  <div className="text-center space-y-2 relative z-10 p-4">
-                    <div className="w-10 h-10 rounded-full bg-[#CA3333]/20 text-[#CA3333] flex items-center justify-center mx-auto border border-[#CA3333]/40 animate-pulse">
-                      <MapPin className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-bold text-white block">Apex Itse Nig Ltd. - Suit C11, Jabi Plaza</span>
-                    <span className="text-[10px] text-slate-400 block">Obafemi Awolowo Way, Jabi, Abuja</span>
-                  </div>
+                {/* Embedded Live Google Map */}
+                <div className="relative w-full h-64 sm:h-72 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden shadow-inner group">
+                  <iframe
+                    title="Apex Itse Nig Ltd Jabi Plaza Abuja Office Location"
+                    src="https://maps.google.com/maps?q=Jabi+Plaza,+Obafemi+Awolowo+Way,+Jabi,+Abuja,+Nigeria&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, filter: "contrast(1.1) saturate(1.1)" }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full rounded-2xl"
+                  />
                 </div>
+
+                {/* Get Directions Button */}
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Jabi+Plaza,+Obafemi+Awolowo+Way,+Jabi,+Abuja,+Nigeria"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 rounded-xl bg-[#2BA2DD] hover:bg-[#2092cb] text-slate-950 font-extrabold text-xs font-mono uppercase tracking-wider shadow-lg shadow-[#2BA2DD]/20 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                >
+                  <Navigation className="w-4 h-4 text-slate-950 fill-slate-950" />
+                  <span>Get Live Driving Directions to Jabi Plaza</span>
+                  <ExternalLink className="w-4 h-4 text-slate-950" />
+                </a>
               </div>
 
             </div>
