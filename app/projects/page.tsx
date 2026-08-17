@@ -63,7 +63,34 @@ export default function ProjectsPage() {
     { id: 32, type: "image", src: "/images/prouduct32.jpeg", alt: "Apexitse Project Showcase 32", title: "Frameless Shower Door" },
     { id: 33, type: "image", src: "/images/prouduct33.jpeg", alt: "Apexitse Project Showcase 33", title: "Alucobond Architectural Facade" },
     { id: 34, type: "image", src: "/images/prouduct34.jpeg", alt: "Apexitse Project Showcase 34", title: "CNC Laser Privacy Screen" },
-    { id: 35, type: "image", src: "/images/prouduct35.jpeg", alt: "Apexitse Project Showcase 35", title: "Structural Steel Frame Work" }
+    { id: 35, type: "image", src: "/images/prouduct35.jpeg", alt: "Apexitse Project Showcase 35", title: "Structural Steel Frame Work" },
+    { id: 36, type: "image", src: "/images/prouduct36.jpeg", alt: "Apexitse Project Showcase 36", title: "Glass Balustrade Installation" },
+    { id: 37, type: "image", src: "/images/prouduct37.jpeg", alt: "Apexitse Project Showcase 37", title: "Laser Cut Gate Panel" },
+    { id: 38, type: "image", src: "/images/prouduct38.jpeg", alt: "Apexitse Project Showcase 38", title: "Wrought Iron Perimeter Railing" },
+    { id: 39, type: "image", src: "/images/prouduct39.jpeg", alt: "Apexitse Project Showcase 39", title: "Alucobond Column Cladding" },
+    { id: 40, type: "image", src: "/images/prouduct40.jpeg", alt: "Apexitse Project Showcase 40", title: "Executive Partitioning Glass" },
+    { id: 41, type: "image", src: "/images/prouduct41.jpeg", alt: "Apexitse Project Showcase 41", title: "Tempered Glass Door System" },
+    { id: 42, type: "image", src: "/images/prouduct42.jpeg", alt: "Apexitse Project Showcase 42", title: "Structural Steel Frame Work" },
+    { id: 43, type: "image", src: "/images/prouduct43.jpeg", alt: "Apexitse Project Showcase 43", title: "Laser Cut Wall Screen" },
+    { id: 44, type: "image", src: "/images/prouduct44.jpeg", alt: "Apexitse Project Showcase 44", title: "Custom Metal Handrail System" },
+    { id: 45, type: "image", src: "/images/prouduct45.jpeg", alt: "Apexitse Project Showcase 45", title: "Shower Cubicle Enclosure" },
+    { id: 46, type: "image", src: "/images/prouduct46.jpeg", alt: "Apexitse Project Showcase 46", title: "Aluminum Window Fitting" },
+    { id: 47, type: "image", src: "/images/prouduct47.jpeg", alt: "Apexitse Project Showcase 47", title: "Pergola & Gazebo Shade" },
+    { id: 48, type: "image", src: "/images/prouduct48.jpeg", alt: "Apexitse Project Showcase 48", title: "Roof Water Collector System" },
+    { id: 49, type: "image", src: "/images/prouduct49.jpeg", alt: "Apexitse Project Showcase 49", title: "Outdoor Metal Canopy" },
+    { id: 50, type: "image", src: "/images/prouduct50.jpeg", alt: "Apexitse Project Showcase 50", title: "Stainless Steel Balcony Railing" },
+    { id: 51, type: "image", src: "/images/prouduct51.jpeg", alt: "Apexitse Project Showcase 51", title: "Office Partition Wall System" },
+    { id: 52, type: "image", src: "/images/prouduct52.jpeg", alt: "Apexitse Project Showcase 52", title: "Commercial Facade Cladding" },
+    { id: 53, type: "image", src: "/images/prouduct53.jpeg", alt: "Apexitse Project Showcase 53", title: "Frameless Glass Stair Railing" },
+    { id: 54, type: "image", src: "/images/prouduct54.jpeg", alt: "Apexitse Project Showcase 54", title: "Wrought Iron Burglar Proofing" },
+    { id: 55, type: "image", src: "/images/prouduct55.jpeg", alt: "Apexitse Project Showcase 55", title: "Architectural Pergola Frame" },
+    { id: 56, type: "image", src: "/images/prouduct56.jpeg", alt: "Apexitse Project Showcase 56", title: "Custom Laser Cut Privacy Screen" },
+    { id: 57, type: "image", src: "/images/prouduct57.jpeg", alt: "Apexitse Project Showcase 57", title: "Aluminum Glass Sliding Door" },
+    { id: 58, type: "image", src: "/images/prouduct58.jpeg", alt: "Apexitse Project Showcase 58", title: "Structural Steel Roof Truss" },
+    { id: 59, type: "image", src: "/images/prouduct59.jpeg", alt: "Apexitse Project Showcase 59", title: "High-Security Metal Fence" },
+    { id: 60, type: "image", src: "/images/prouduct60.jpeg", alt: "Apexitse Project Showcase 60", title: "Bathroom Glass Cubicle" },
+    { id: 61, type: "image", src: "/images/prouduct61.jpeg", alt: "Apexitse Project Showcase 61", title: "Alucobond ACP Wall Panel" },
+    { id: 62, type: "image", src: "/images/prouduct62.jpeg", alt: "Apexitse Project Showcase 62", title: "Turnkey Finishing Execution" }
   ];
 
   const galleryVideos: GalleryMedia[] = [
@@ -164,6 +191,13 @@ export default function ProjectsPage() {
       src: "/images/video14.mp4",
       alt: "Modern Aluminum Window & Door Fitting",
       title: "Aluminum Window & Door Reel 14"
+    },
+    {
+      id: 115,
+      type: "video",
+      src: "/images/video15.mp4",
+      alt: "Architectural Metal & Glass Site Execution",
+      title: "Architectural Metal & Glass Reel 15"
     }
   ];
 
@@ -224,7 +258,7 @@ export default function ProjectsPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-                Explore our showcase of 35 high-definition project photos and 14 on-site video reels documenting Alucobond ACP cladding, frameless glass balustrades, and structural metalwork across Nigeria.
+                Explore our showcase of 62 high-definition project photos and 15 on-site video reels documenting Alucobond ACP cladding, frameless glass balustrades, and structural metalwork across Nigeria.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">

@@ -153,56 +153,60 @@ export default function HomePage() {
   return (
     <div className="space-y-24 pb-20">
 
-      {/* 1. HERO SECTION BANNER CARD (Reference Top Banner) */}
+      {/* 1. HERO SECTION BANNER CARD */}
       <section className="relative pt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl min-h-[540px] flex items-center">
+          <div className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl p-6 sm:p-10 lg:p-12">
             
-            {/* Background Image Container with Gradient Mask */}
-            <div className="absolute inset-0 w-full h-full">
-              <Image
-                src="/images/hero_facade.jpeg"
-                alt="Apexitse Real Estate & Commercial Finishing"
-                fill
-                priority
-                className="object-cover object-right opacity-40 sm:opacity-50"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent" />
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Column: Hero Content & Writeup */}
+              <div className="lg:col-span-7 space-y-6 relative z-10">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-950/90 border border-[#CA3333]/40 text-[#2BA2DD] text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+                  <Sparkles className="w-4 h-4 text-[#CA3333] animate-pulse" />
+                  <span>Pioneering Architectural Finishing Since 2013</span>
+                </div>
 
-            {/* Banner Content (Left Aligned) */}
-            <div className="relative z-10 max-w-2xl p-8 sm:p-14 space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-[#CA3333]/40 text-[#2BA2DD] text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
-                <Sparkles className="w-4 h-4 text-[#CA3333] animate-pulse" />
-                <span>Pioneering Architectural Finishing Since 2013</span>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] font-mono">
+                  Architectural <span className="text-[#CA3333]">Finishing</span> & Metalwork
+                </h1>
+
+                <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
+                  Handrails, wrought iron, shower cubicle, glass balustrade, laser cut decorative designs, office partitioning, Aluminum windows and glass, roof water collector, pergola/Gazebo, all metal and glass works.
+                </p>
+
+                <div className="pt-2 flex flex-wrap items-center gap-4">
+                  <a
+                    href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 rounded-full bg-[#CA3333] hover:bg-[#b22b2b] text-white font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-[#CA3333]/30 transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Request Project Quote</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+
+                  <Link
+                    href="/projects"
+                    className="px-7 py-4 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm uppercase tracking-wider border border-slate-700 backdrop-blur-md transition-all flex items-center gap-2"
+                  >
+                    <span>View Completed Works</span>
+                  </Link>
+                </div>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] font-mono">
-                Architectural <span className="text-[#CA3333]">Finishing</span> & Metalwork
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-                Turnkey Alucobond ACP cladding, frameless glass curtain walls, structural steel fabrication, and luxury interior fit-outs delivered across Abuja and Nigeria.
-              </p>
-
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20project"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 rounded-full bg-[#CA3333] hover:bg-[#b22b2b] text-white font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-[#CA3333]/30 transition-all flex items-center gap-2"
-                >
-                  <span>Request Project Quote</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-
-                <Link
-                  href="/projects"
-                  className="px-7 py-4 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white font-bold text-sm uppercase tracking-wider border border-slate-700 backdrop-blur-md transition-all"
-                >
-                  View Completed Works
-                </Link>
+              {/* Right Column: Full Un-cropped Image Showcase */}
+              <div className="lg:col-span-5 relative w-full h-[360px] sm:h-[460px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group bg-slate-950">
+                <Image
+                  src="/images/hero-new.jpeg"
+                  alt="Apexitse Architectural Metal & Glass Work"
+                  fill
+                  priority
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
               </div>
+
             </div>
 
           </div>

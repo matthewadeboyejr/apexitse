@@ -341,19 +341,64 @@ export default function ServicesPage() {
   return (
     <div className="space-y-16 pb-20">
       
-      {/* PAGE HERO */}
-      <section className="relative pt-12 pb-16 bg-radial-gradient">
+      {/* 1. HERO BANNER CARD */}
+      <section className="relative pt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-mono font-bold text-[#2BA2DD] uppercase tracking-widest px-3 py-1 rounded bg-[#2BA2DD]/10 border border-[#2BA2DD]/20">
-              Official Company Portfolio Brochure
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight font-mono">
-              Our Complete Finishing & Fabrication Services
-            </h1>
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-              At Apex Itse Nig Ltd, we specialize in precision-engineered, modern, and secure finishing solutions. Explore our full spectrum of 16 specialized metal, glass, structural, and general contracting services.
-            </p>
+          <div className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl p-6 sm:p-10 lg:p-12">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Column: Hero Content & Writeup */}
+              <div className="lg:col-span-7 space-y-6 relative z-10">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-950/90 border border-[#CA3333]/40 text-[#2BA2DD] text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+                  <Sparkles className="w-4 h-4 text-[#CA3333] animate-pulse" />
+                  <span>Official Company Portfolio Brochure</span>
+                </div>
+
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] font-mono">
+                  Our Complete <span className="text-[#CA3333]">Finishing</span> & Services
+                </h1>
+
+                <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
+                  At Apex Itse Nig Ltd, we specialize in precision-engineered, modern, and secure finishing solutions. Explore our full spectrum of specialized metal, glass, structural, and general contracting services.
+                </p>
+
+                <div className="pt-2 flex flex-wrap items-center gap-4">
+                  <a
+                    href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20service"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 rounded-full bg-[#CA3333] hover:bg-[#b22b2b] text-white font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-[#CA3333]/30 transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Request Service Quote</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+
+                  <a
+                    href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20chat%20about%20your%20services"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-7 py-4 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm uppercase tracking-wider border border-slate-700 backdrop-blur-md transition-all flex items-center gap-2"
+                  >
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column: Full Image Showcase */}
+              <div className="lg:col-span-5 relative w-full h-[340px] sm:h-[420px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group bg-slate-950">
+                <Image
+                  src="/images/hero_facade.jpeg"
+                  alt="Apexitse Specialized Finishing Services"
+                  fill
+                  priority
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
+              </div>
+
+            </div>
+
           </div>
         </div>
       </section>
