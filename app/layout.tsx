@@ -16,6 +16,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://apexitse.com"),
   title: "Apexitse - Apex Itse Nig Ltd | Premium Interior & Exterior Finishing Nigeria",
   description:
     "Apex Itse Nig Ltd. is Nigeria's leading architectural finishing & structural metal fabrication firm established in 2013. Specializing in Alucobond ACP cladding, frameless glass curtain walls, acoustic interior fitouts & structural metalwork in Abuja and across West Africa.",
@@ -30,6 +31,32 @@ export const metadata: Metadata = {
     "Curtain wall installation",
     "Commercial office fitout Nigeria"
   ],
+  openGraph: {
+    title: "Apexitse - Apex Itse Nig Ltd | Premium Architectural Finishing Nigeria",
+    description: "Nigeria's leading architectural finishing & structural metal fabrication firm established in 2013 in Abuja.",
+    url: "https://apexitse.com",
+    siteName: "Apex Itse Nig Ltd",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Apexitse Architectural Finishing & Metalwork Nigeria"
+      }
+    ],
+    locale: "en_NG",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Apexitse - Apex Itse Nig Ltd | Premium Architectural Finishing",
+    description: "Nigeria's leading architectural finishing & structural metal fabrication firm in Abuja.",
+    images: ["/og-image.jpeg"]
+  },
+  icons: {
+    icon: "/logo.jpeg",
+    apple: "/logo.jpeg"
+  }
 };
 
 export default function RootLayout({
