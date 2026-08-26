@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpeg",
         width: 1200,
         height: 630,
-        alt: "Apexitse Architectural Finishing & Metalwork Nigeria"
+        alt: "Apexitse Interior & Exterior Finishing Nigeria"
       }
     ],
     locale: "en_NG",

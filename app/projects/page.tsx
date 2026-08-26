@@ -40,7 +40,7 @@ export default function ProjectsPage() {
     { id: 9, type: "image", src: "/images/prouduct9.jpeg", alt: "Apexitse Project Showcase 9", title: "Stainless Steel Stair Handrail" },
     { id: 10, type: "image", src: "/images/prouduct10.jpeg", alt: "Apexitse Project Showcase 10", title: "Frameless Glass Balustrade System" },
     { id: 11, type: "image", src: "/images/prouduct11.jpeg", alt: "Apexitse Project Showcase 11", title: "Alucobond ACP Cladding Facade" },
-    { id: 12, type: "image", src: "/images/prouduct12.jpeg", alt: "Apexitse Project Showcase 12", title: "Architectural Pergola Shade" },
+    { id: 12, type: "image", src: "/images/prouduct12.jpeg", alt: "Apexitse Project Showcase 12", title: "Pergola Shade" },
     { id: 13, type: "image", src: "/images/prouduct13.jpeg", alt: "Apexitse Project Showcase 13", title: "Bathroom Glass Cubicle" },
     { id: 14, type: "image", src: "/images/prouduct14.jpeg", alt: "Apexitse Project Showcase 14", title: "CNC Laser Decorative Screen" },
     { id: 15, type: "image", src: "/images/prouduct15.jpeg", alt: "Apexitse Project Showcase 15", title: "High-Security Wrought Iron Fence" },
@@ -83,14 +83,23 @@ export default function ProjectsPage() {
     { id: 52, type: "image", src: "/images/prouduct52.jpeg", alt: "Apexitse Project Showcase 52", title: "Commercial Facade Cladding" },
     { id: 53, type: "image", src: "/images/prouduct53.jpeg", alt: "Apexitse Project Showcase 53", title: "Frameless Glass Stair Railing" },
     { id: 54, type: "image", src: "/images/prouduct54.jpeg", alt: "Apexitse Project Showcase 54", title: "Wrought Iron Burglar Proofing" },
-    { id: 55, type: "image", src: "/images/prouduct55.jpeg", alt: "Apexitse Project Showcase 55", title: "Architectural Pergola Frame" },
+    { id: 55, type: "image", src: "/images/prouduct55.jpeg", alt: "Apexitse Project Showcase 55", title: "Pergola Frame" },
     { id: 56, type: "image", src: "/images/prouduct56.jpeg", alt: "Apexitse Project Showcase 56", title: "Custom Laser Cut Privacy Screen" },
     { id: 57, type: "image", src: "/images/prouduct57.jpeg", alt: "Apexitse Project Showcase 57", title: "Aluminum Glass Sliding Door" },
     { id: 58, type: "image", src: "/images/prouduct58.jpeg", alt: "Apexitse Project Showcase 58", title: "Structural Steel Roof Truss" },
     { id: 59, type: "image", src: "/images/prouduct59.jpeg", alt: "Apexitse Project Showcase 59", title: "High-Security Metal Fence" },
     { id: 60, type: "image", src: "/images/prouduct60.jpeg", alt: "Apexitse Project Showcase 60", title: "Bathroom Glass Cubicle" },
     { id: 61, type: "image", src: "/images/prouduct61.jpeg", alt: "Apexitse Project Showcase 61", title: "Alucobond ACP Wall Panel" },
-    { id: 62, type: "image", src: "/images/prouduct62.jpeg", alt: "Apexitse Project Showcase 62", title: "Turnkey Finishing Execution" }
+    { id: 62, type: "image", src: "/images/prouduct62.jpeg", alt: "Apexitse Project Showcase 62", title: "Turnkey Finishing Execution" },
+    { id: 63, type: "image", src: "/images/prouduct63.jpeg", alt: "Apexitse Staircase with Glass", title: "Staircase with Glass Balustrade 01" },
+    { id: 64, type: "image", src: "/images/prouduct64.jpeg", alt: "Apexitse Staircase with Glass", title: "Staircase with Glass Balustrade 02" },
+    { id: 65, type: "image", src: "/images/prouduct65.jpeg", alt: "Apexitse Staircase with Glass", title: "Staircase with Glass Balustrade 03" },
+    { id: 66, type: "image", src: "/images/prouduct66.jpeg", alt: "Apexitse Staircase with Glass", title: "Staircase with Glass Balustrade 04" },
+    { id: 67, type: "image", src: "/images/prouduct67.jpeg", alt: "Apexitse Pergola Installation", title: "Pergola 01" },
+    { id: 68, type: "image", src: "/images/prouduct68.jpeg", alt: "Apexitse Pergola Installation", title: "Pergola 02" },
+    { id: 69, type: "image", src: "/images/prouduct69.jpeg", alt: "Apexitse Pergola Installation", title: "Pergola 03" },
+    { id: 70, type: "image", src: "/images/prouduct70.jpeg", alt: "Apexitse Pergola Installation", title: "Pergola 04" },
+    { id: 71, type: "image", src: "/images/prouduct71.jpeg", alt: "Apexitse Pergola Installation", title: "Pergola 05" }
   ];
 
   const galleryVideos: GalleryMedia[] = [
@@ -258,7 +267,7 @@ export default function ProjectsPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-                Explore our showcase of 62 high-definition project photos and 15 on-site video reels documenting Alucobond ACP cladding, frameless glass balustrades, and structural metalwork across Nigeria.
+                Explore our showcase of 71 high-definition projects and 15 on-site video reels documenting Alucobond ACP cladding, frameless glass balustrades, and structural metalwork across Nigeria.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
@@ -390,7 +399,7 @@ export default function ProjectsPage() {
                       </span>
                     ) : (
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-950/80 text-slate-300 text-[10px] font-mono font-bold border border-slate-700/80 backdrop-blur-md">
-                        Photo #{item.id}
+                        #{item.id}
                       </span>
                     )}
                   </div>
@@ -474,7 +483,7 @@ export default function ProjectsPage() {
                   {currentMedia.title}
                 </span>
                 <span className="text-[11px] font-mono text-slate-400 block">
-                  {currentMedia.type === "video" ? "On-Site Execution Video" : "Project Photo"} ({selectedMediaIndex! + 1} of {filteredMedia.length})
+                  {currentMedia.type === "video" ? "On-Site Execution Video" : "Project"} ({selectedMediaIndex! + 1} of {filteredMedia.length})
                 </span>
               </div>
 

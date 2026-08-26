@@ -168,7 +168,7 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] font-mono">
-                  Architectural <span className="text-[#CA3333]">Finishing</span> & Metalwork
+                  Interior <span className="text-[#CA3333]">& Exterior</span> Finishing
                 </h1>
 
                 <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
