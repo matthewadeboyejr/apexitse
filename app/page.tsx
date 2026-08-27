@@ -34,7 +34,7 @@ export default function HomePage() {
       id: "acp",
       title: "Alucobond & ACP Cladding",
       category: "Exterior Facades",
-      image: "/images/hero_facade.jpeg",
+      image: "/images/prouduct11.jpeg",
       specs: "4mm PVDF Coating • Fire-Rated Core",
       desc: "High-performance Aluminum Composite Panel exterior wall cladding engineered for extreme weather durability, insulation, and modern architectural impact."
     },
@@ -157,9 +157,9 @@ export default function HomePage() {
       <section className="relative pt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl p-6 sm:p-10 lg:p-12">
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              
+
               {/* Left Column: Hero Content & Writeup */}
               <div className="lg:col-span-7 space-y-6 relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-950/90 border border-[#CA3333]/40 text-[#2BA2DD] text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
@@ -218,7 +218,7 @@ export default function HomePage() {
       <section className="relative py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column: About Us Writeup */}
             <div className="lg:col-span-6 space-y-6">
               <div className="space-y-3">
@@ -253,7 +253,7 @@ export default function HomePage() {
             {/* Right Column: 2x2 Big Stats Grid (Reference Layout) */}
             <div className="lg:col-span-6">
               <div className="grid grid-cols-2 gap-6">
-                
+
                 <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl space-y-2">
                   <div className="text-4xl sm:text-5xl font-extrabold text-white font-mono">11+</div>
                   <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
@@ -318,7 +318,7 @@ export default function HomePage() {
       {/* 3. SERVICE CATALOG SECTION (Reference 3-Card Rounded Grid Layout) */}
       <section className="relative py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-2 max-w-xl">
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
@@ -376,7 +376,7 @@ export default function HomePage() {
                   <div className="text-[11px] font-mono text-slate-500 border-t border-slate-800 pt-3">
                     {service.specs}
                   </div>
-                  
+
                   <a
                     href="https://wa.me/2347064965467?text=Hello%20Apexitse%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20service"
                     target="_blank"
@@ -397,7 +397,7 @@ export default function HomePage() {
       {/* 4. HOW WE WORK SECTION (Reference Layout: Tall Image Card + 5 Process List) */}
       <section className="relative py-12 bg-slate-950/60 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
+
           <div className="space-y-2 max-w-2xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
               How We Work
@@ -408,7 +408,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column: Tall Vertical Image with Circular Badge (Reference Layout) */}
             <div className="lg:col-span-5 relative">
               <div className="relative w-full h-[520px] sm:h-[580px] rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl">
@@ -499,7 +499,7 @@ export default function HomePage() {
       {/* 5B. ON-SITE VIDEO REELS SHOWCASE */}
       <section className="relative py-12 bg-slate-950/80 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-2">
               <span className="text-xs font-mono font-bold text-[#CA3333] uppercase tracking-widest px-3 py-1 rounded bg-[#CA3333]/10 border border-[#CA3333]/20">
@@ -615,11 +615,10 @@ export default function HomePage() {
               return (
                 <div
                   key={val.num}
-                  className={`p-8 sm:p-10 rounded-3xl bg-slate-900 border transition-all duration-300 relative overflow-hidden group shadow-2xl flex flex-col justify-between space-y-6 ${
-                    isRed
+                  className={`p-8 sm:p-10 rounded-3xl bg-slate-900 border transition-all duration-300 relative overflow-hidden group shadow-2xl flex flex-col justify-between space-y-6 ${isRed
                       ? "border-slate-800 hover:border-[#CA3333]/60"
                       : "border-slate-800 hover:border-[#2BA2DD]/60"
-                  }`}
+                    }`}
                 >
                   <span className="absolute -right-2 -bottom-6 text-9xl font-extrabold font-mono text-slate-800/20 select-none group-hover:text-slate-800/40 transition-colors pointer-events-none">
                     {val.num}
@@ -627,11 +626,10 @@ export default function HomePage() {
 
                   <div className="space-y-4 relative z-10">
                     <div className="flex items-center justify-between">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border ${
-                        isRed
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border ${isRed
                           ? "bg-[#CA3333]/15 text-[#CA3333] border-[#CA3333]/30"
                           : "bg-[#2BA2DD]/15 text-[#2BA2DD] border-[#2BA2DD]/30"
-                      }`}>
+                        }`}>
                         <ValIcon className="w-7 h-7" />
                       </div>
                     </div>
@@ -667,11 +665,10 @@ export default function HomePage() {
               return (
                 <div
                   key={val.num}
-                  className={`p-6 sm:p-8 rounded-3xl bg-slate-900 border transition-all duration-300 relative overflow-hidden group shadow-xl flex flex-col justify-between space-y-4 ${
-                    isRed
+                  className={`p-6 sm:p-8 rounded-3xl bg-slate-900 border transition-all duration-300 relative overflow-hidden group shadow-xl flex flex-col justify-between space-y-4 ${isRed
                       ? "border-slate-800 hover:border-[#CA3333]/50"
                       : "border-slate-800 hover:border-[#2BA2DD]/50"
-                  }`}
+                    }`}
                 >
                   <span className="absolute -right-2 -bottom-4 text-7xl font-extrabold font-mono text-slate-800/20 select-none group-hover:text-slate-800/40 transition-colors pointer-events-none">
                     {val.num}
@@ -679,11 +676,10 @@ export default function HomePage() {
 
                   <div className="space-y-3 relative z-10">
                     <div className="flex items-center justify-between">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center border ${
-                        isRed
+                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center border ${isRed
                           ? "bg-[#CA3333]/15 text-[#CA3333] border-[#CA3333]/30"
                           : "bg-[#2BA2DD]/15 text-[#2BA2DD] border-[#2BA2DD]/30"
-                      }`}>
+                        }`}>
                         <ValIcon className="w-5 h-5" />
                       </div>
                       <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">
